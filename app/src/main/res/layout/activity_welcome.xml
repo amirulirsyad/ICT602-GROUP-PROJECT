@@ -18,13 +18,13 @@
         android:background="#5F85DB"
         android:text="WELCOME"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
         android:background="#90B8F8"
@@ -32,7 +32,7 @@
         android:fontFamily="@font/raleway"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="30dp" >
+        android:textSize="20dp" >
 
     </TextView>
 
@@ -65,18 +65,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:background="#676767"
+        android:background="#353941"
         android:text=" On Map "
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        android:textColor="@color/white"
         android:textSize="23dp" >
 
     </TextView>
 
     <TextView
         android:layout_width="415dp"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
         android:background="#353941"
