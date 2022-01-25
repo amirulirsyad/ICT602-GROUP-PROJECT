@@ -4,31 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:background="#26282B"
     tools:context=".Welcome">
 
-    <RelativeLayout
-        android:id="@+id/female"
-        android:layout_width="415dp"
-        android:layout_height="80dp"
-        android:layout_above="@+id/hightlayout"
-        android:layout_marginBottom="15dp"
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
-        android:layout_toEndOf="@+id/centerverticalline"
-        android:background="#318da1">
+        android:background="#5F85DB"
+        android:text="WELCOME"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/female"
-        android:layout_width="415dp"
-        android:layout_height="80dp"
-        android:layout_above="@+id/hightlayout"
-        android:layout_marginBottom="15dp"
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:background="#318da1">
+        android:background="#90B8F8"
+        android:text="User's Name"
+        android:fontFamily="@font/raleway"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp" >
 
-    </RelativeLayout>
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        android:text="User's current location: "
+        android:textColor="@color/white"
+        android:textSize="20dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="260dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#5F85DB"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="#676767"
+        android:text=" On Map "
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="23dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="415dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:background="#353941"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp" >
+
+    </TextView>
 
 
 </LinearLayout>
