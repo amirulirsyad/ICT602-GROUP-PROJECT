@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#FFFFFF"
+    android:background="#26282B"
     tools:context=".LoginActivity">
 
     <TextView
@@ -13,12 +13,12 @@
         android:layout_height="wrap_content"
         android:text="Account Login"
         android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="#000"
+        android:textSize="22sp"
+        android:textColor="#FFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="80dp"
         />
 
     <ScrollView
@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:focusable="true"
+
             android:focusableInTouchMode="true"
             >
 
@@ -43,6 +44,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="50dp"
                 android:textColorHint="#808080"
+                android:background="#52565c"
                 app:layout_constraintTop_toTopOf="parent"
                 >
                 <EditText
@@ -69,6 +71,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="10dp"
                 android:textColorHint="#808080"
+                android:background="#52565c"
                 app:layout_constraintTop_toBottomOf="@+id/layout_email"
                 >
 
@@ -97,7 +100,7 @@
                 android:text="Login"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp"
-                android:background="@color/white"
+                android:background="#3644c9"
                 android:textAllCaps="false"
                 android:layout_marginTop="40dp"
                 app:layout_constraintWidth_percent="0.7"
@@ -125,7 +128,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:textColor="#000"
+                    android:textColor="#FFF"
                     android:textSize="18sp"
                     android:text="Already have an account?"
                     />
@@ -136,7 +139,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:textColor="@color/black"
+                    android:textColor="#3644c9"
                     android:textSize="18sp"
                     android:background="@android:color/transparent"
                     android:textAllCaps="false"
