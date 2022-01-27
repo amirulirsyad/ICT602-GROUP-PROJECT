@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "153372095252",
+    "firebase_url": "https://group-project-ict602-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "group-project-ict602",
+    "storage_bucket": "group-project-ict602.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153372095252:android:71eb60fbb35d50a0018801",
+        "android_client_info": {
+          "package_name": "com.example.healthcenternearme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153372095252-1v5vi0ed27vjvek8lmc962jg00rqpdtd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFuEXMc_ti4xY1Nscj0yI_CHaF1WaeZVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153372095252-1v5vi0ed27vjvek8lmc962jg00rqpdtd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
