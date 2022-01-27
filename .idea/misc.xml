@@ -14,10 +14,23 @@
         <entry key="..\:/Users/Asus/Desktop/class online/SEM III/ICT602/LAB/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Asus/Desktop/class online/SEM III/ICT602/LAB/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Desktop/class online/SEM III/ICT602/LAB/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
+<<<<<<< Updated upstream
         <entry key="..\:/Users/User/Documents/Github/Web/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_gps.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User/Documents/Github/Web/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_login.xml" value="0.67" />
         <entry key="..\:/Users/User/Documents/Github/Web/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_sign_up.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User/Documents/Github/Web/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_welcome.xml" value="0.2361111111111111" />
+=======
+        <entry key="..\:/Users/Asus/Desktop/class online/SEM III/ICT602/LAB/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_welcome_light.xml" value="0.264" />
+        <entry key="..\:/Users/TY Computers/Documents/GitHub/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/TY Computers/Documents/GitHub/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_sign_up.xml" value="0.1308876811594203" />
+        <entry key="..\:/Users/TY Computers/Documents/GitHub/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_sign_up_light.xml" value="0.10778985507246377" />
+        <entry key="..\:/Users/TY Computers/Documents/GitHub/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_welcome.xml" value="0.25" />
+        <entry key="..\:/Users/TY Computers/Documents/GitHub/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_welcome_home.xml" value="0.33" />
+        <entry key="..\:/Users/TY Computers/Documents/GitHub/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_welcome_light.xml" value="0.2" />
+        <entry key="..\:/Users/TY Computers/Documents/GitHub/ICT602-GROUP-PROJECT/app/src/main/res/layout/activity_welcome_page.xml" value="0.22" />
+        <entry key="..\:/Users/TY Computers/Documents/GitHub/ICT602-GROUP-PROJECT/app/src/main/res/layout/d.xml" value="0.2" />
+        <entry key="..\:/Users/TY Computers/Documents/GitHub/ICT602-GROUP-PROJECT/app/src/main/res/layout/h.xml" value="0.2" />
+>>>>>>> Stashed changes
       </map>
     </option>
   </component>

@@ -8,17 +8,6 @@
     android:background="#12123c"
     tools:context=".Welcome">
 
-    <TextView
-        android:layout_width="140dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="40dp"
-        android:text="User's Name"
-        android:fontFamily="@font/raleway"
-        android:textStyle="bold"
-        android:textColor="#4f5561"
-        android:textSize="17dp" >
-
-    </TextView>
 
     <TextView
         android:layout_width="180dp"
@@ -28,6 +17,17 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/raleway"
+        android:text="User's Name"
+        android:textColor="#4f5561"
+        android:textSize="17dp"
+        android:textStyle="bold">
+
+    </TextView>
 
     <Button
         android:id="@+id/buttonGPS"
@@ -38,12 +38,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="0dp"
-        android:layout_marginLeft="0dp"
         android:text="User's current location: "
         android:textColor="@color/white"
-        android:textSize="20dp" >
+        android:textSize="20dp">
 
     </TextView>
 
