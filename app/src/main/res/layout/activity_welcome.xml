@@ -84,7 +84,7 @@
             android:id="@+id/notification"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="365dp"
+            android:layout_marginLeft="315dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/noti1" />
 
@@ -104,7 +104,7 @@
         <TextView
             android:id="@+id/map"
             android:layout_width="380dp"
-            android:layout_height="230dp"
+            android:layout_height="140dp"
             android:layout_below="@+id/userslocation"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="16dp"
@@ -119,9 +119,9 @@
 
         <Button
             android:id="@+id/menubar"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginRight="350dp"
+            android:layout_width="62dp"
+            android:layout_height="53dp"
+            android:layout_marginRight="300dp"
             android:background="@drawable/bar" />
 
 
