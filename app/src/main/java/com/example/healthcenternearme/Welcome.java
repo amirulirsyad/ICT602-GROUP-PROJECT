@@ -22,7 +22,7 @@ public class Welcome extends AppCompatActivity {
     }
 
     void viewInitializations() {
-        getGPS = (Button)findViewById(R.id.buttonGPS);
+        /*getGPS = (Button)findViewById(R.id.buttonGPS);
         getGPS.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -34,10 +34,9 @@ public class Welcome extends AppCompatActivity {
             }
 
 
-        });
-        {
+        });*/
 
-        }
+
 
         // To show back button in actionbar
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
