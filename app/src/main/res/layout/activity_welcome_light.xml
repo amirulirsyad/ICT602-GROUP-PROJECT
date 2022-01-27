@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e5e7e7"
+    tools:context=".Welcome">
+
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:text="User's Name"
+        android:fontFamily="@font/raleway"
+        android:textStyle="bold"
+        android:textColor="#4f5561"
+        android:textSize="17dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:text="WELCOME"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        android:text="User's current location: "
+        android:textColor="#000"
+        android:textSize="20dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="260dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#FFF"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="#353941"
+        android:text=" On Map "
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="23dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="415dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:background="#353941"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp" >
+
+    </TextView>
+
+
+</LinearLayout>

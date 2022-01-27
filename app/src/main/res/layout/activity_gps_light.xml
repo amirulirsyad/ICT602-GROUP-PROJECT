@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e5e7e7"
+    tools:context=".GPS">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="15dp"
+        android:text="GPS coordinate :"
+        android:textColor="@color/black"
+        android:textSize="20dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#5F85DB"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="35dp"
+        android:text="PLACES NEAR ME"
+        android:textColor="@color/black"
+        android:textSize="20dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="270dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#52565c"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp" >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="415dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:background="#353941"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp" >
+
+    </TextView>
+
+</LinearLayout>
