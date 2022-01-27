@@ -1,5 +1,6 @@
 package com.example.healthcenternearme;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -7,38 +8,48 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText etFirstName, etLastName, etEmail, etPassword, etRepeatPassword;
+    EditText etFirstName, etUserName, etEmail, etPassword, etRepeatPassword;
     final int MIN_PASSWORD_LENGTH = 6;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        mAuth = FirebaseAuth.getInstance();
+
         viewInitializations();
     }
 
     void viewInitializations() {
         etFirstName = findViewById(R.id.et_first_name);
-        etLastName = findViewById(R.id.et_last_name);
+        etUserName = findViewById(R.id.et_username);
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
         etRepeatPassword = findViewById(R.id.et_repeat_password);
 
         // To show back button in actionbar
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     // Checking if the input in form is valid
     boolean validateInput() {
         if (etFirstName.getText().toString().equals("")) {
-            etFirstName.setError("Please Enter First Name");
+            etFirstName.setError("Please Enter Full Name");
             return false;
         }
-        if (etLastName.getText().toString().equals("")) {
-            etLastName.setError("Please Enter Last Name");
+        if (etUserName.getText().toString().equals("")) {
+            etUserName.setError("Please Enter Username");
             return false;
         }
         if (etEmail.getText().toString().equals("")) {
@@ -86,13 +97,31 @@ public class SignUpActivity extends AppCompatActivity {
             // Input is valid, here send data to your server
 
             String firstName = etFirstName.getText().toString();
-            String lastName = etLastName.getText().toString();
+            String lastName = etUserName.getText().toString();
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
             String repeatPassword = etRepeatPassword.getText().toString();
 
             Toast.makeText(this,"Login Success",Toast.LENGTH_SHORT).show();
             // Here you can call you API
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                //Log.d(TAG, "createUserWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                //updateUI(user);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                //Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
+                                        //Toast.LENGTH_SHORT).show();
+                                //updateUI(null);
+                            }
+                        }
+                    });
 
         }
     }
