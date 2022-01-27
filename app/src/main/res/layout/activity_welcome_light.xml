@@ -4,79 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#e6effe"
-    tools:context=".Welcome">
+    android:background="#e6effe">
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="140dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="40dp"
-        android:text="User's Name"
-        android:fontFamily="@font/raleway"
-        android:textStyle="bold"
-        android:textColor="#4f5561"
-        android:textSize="17dp" >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#e6effe" />
 
-    </TextView>
+        <TextView
+            android:id="@+id/AppName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="100dp"
+            android:fontFamily="@font/minotaur"
+            android:text="AppName"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:text="WELCOME"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/greeting"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AppName"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            android:text="Welcome Back!"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/greeting"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/sticky"
+            android:text="Ismah Hadirah"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/white"
+            android:text="option"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            android:textStyle="bold" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginLeft="0dp"
-        android:text="User's current location: "
-        android:textColor="#000"
-        android:textSize="20dp" >
+        <ImageButton
+            android:id="@+id/Hospital"
+            android:layout_width="170sp"
+            android:layout_height="170sp"
+            android:layout_below="@+id/option"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ho" />
 
-    </TextView>
+        <Button
+            android:id="@+id/notification"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="365dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/noti1" />
 
-    <TextView
-        android:layout_width="380dp"
-        android:layout_height="260dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:background="#FFF"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30dp" >
+        <TextView
+            android:id="@+id/userslocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Hospital"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            android:text="User's Current Location"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-    </TextView>
+        <TextView
+            android:id="@+id/map"
+            android:layout_width="380dp"
+            android:layout_height="230dp"
+            android:layout_below="@+id/userslocation"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="16dp"
+            android:background="#FFF"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:background="#353941"
-        android:text=" On Map "
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="23dp" >
+        </TextView>
 
-    </TextView>
+        <Button
+            android:id="@+id/menubar"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginRight="350dp"
+            android:background="@drawable/bar" />
 
-    <TextView
-        android:layout_width="415dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="60dp"
-        android:background="#353941"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30dp" >
 
-    </TextView>
+    </RelativeLayout>
 
 
 </LinearLayout>
