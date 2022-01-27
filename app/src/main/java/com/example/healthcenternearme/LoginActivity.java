@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // checking minimum password Length
         if (etPassword.getText().length() < MIN_PASSWORD_LENGTH) {
-            etPassword.setError("Password Length must be more than " + MIN_PASSWORD_LENGTH + "characters");
+            etPassword.setError("Password Length must be more than " + MIN_PASSWORD_LENGTH + " characters");
             return false;
         }
 
@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
 
-            Toast.makeText(this,"Login Success",Toast.LENGTH_SHORT).show();
+
             // Here you can call you API
             // Check this tutorial to call server api through Google Volley Library https://handyopinion.com
             mAuth.signInWithEmailAndPassword(email, password)
@@ -91,20 +91,18 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                //Log.d(TAG, "signInWithEmail:success");
+                                Toast.makeText(LoginActivity.this,"Login Successfull",Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                //updateUI(user);
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                //Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
-                                        //Toast.LENGTH_SHORT).show();
-                                //updateUI(null);
+                                Intent intent = new Intent(LoginActivity.this, Welcome.class);
+                                startActivity(intent);
+                            }
+                            else{
+                                Toast.makeText(LoginActivity.this,"Incorrect Email/Password",Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
         }
+
     }
 
     public void goToSignup(View v) {
