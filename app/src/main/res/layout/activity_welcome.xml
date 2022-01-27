@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#26282B"
+    android:background="#12123c"
     tools:context=".Welcome">
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_height="260dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="#FFF"
+        android:background="#accbee"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30dp" >
