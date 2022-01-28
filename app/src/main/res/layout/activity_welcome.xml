@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#12123c">
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
+        android:layout_height="80dp"
+        android:layout_centerVertical="true">
 
         <TextView
             android:id="@+id/AppName"
@@ -27,19 +25,38 @@
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/menubar"
+            android:layout_width="62dp"
+            android:layout_height="53dp"
+            android:layout_marginRight="300dp"
+            android:background="@drawable/bar" />
+        <Button
+            android:id="@+id/notification"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="315dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/noti1" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true">
 
         <TextView
             android:id="@+id/greeting"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AppName"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="16dp"
             android:text="Welcome Back!"
             android:textColor="#c9c1c5"
             android:textSize="13sp" />
-
         <TextView
             android:id="@+id/username"
             android:layout_width="match_parent"
@@ -54,13 +71,20 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true">
+
         <TextView
             android:id="@+id/option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/username"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="16dp"
             android:background="@color/black"
             android:text="option"
@@ -68,64 +92,72 @@
             android:textSize="19sp"
             android:textStyle="bold" />
 
+    </RelativeLayout>
 
-        <ImageButton
-            android:id="@+id/Hospital"
-            android:layout_width="170sp"
-            android:layout_height="170sp"
-            android:layout_below="@+id/option"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ho" />
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/cardbackgroud">
 
-        <Button
-            android:id="@+id/notification"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="315dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/noti1" />
+        <ImageView
+            android:layout_width="145dp"
+            android:layout_height="145dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/cardbackgroud"
+            app:srcCompat="@drawable/ho">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true">
 
         <TextView
-            android:id="@+id/userslocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Hospital"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="16dp"
             android:text="User's Current Location"
             android:textColor="@color/white"
             android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/map"
-            android:layout_width="380dp"
-            android:layout_height="140dp"
-            android:layout_below="@+id/userslocation"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="16dp"
-            android:background="#FFF"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="30dp">
+            android:textStyle="bold">
 
         </TextView>
 
-        <Button
-            android:id="@+id/menubar"
-            android:layout_width="62dp"
-            android:layout_height="53dp"
-            android:layout_marginRight="300dp"
-            android:background="@drawable/bar" />
+    </RelativeLayout>
 
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/map"
+            android:layout_width="380dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="16dp"
+            android:background="#3d373d"
+            android:textColor="@color/black">
+
+        </ImageView>
 
     </RelativeLayout>
+
+
+
 
 
 </LinearLayout>
