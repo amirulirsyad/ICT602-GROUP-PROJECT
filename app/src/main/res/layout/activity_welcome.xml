@@ -31,12 +31,13 @@
             android:layout_height="53dp"
             android:layout_marginRight="300dp"
             android:background="@drawable/bar" />
+
         <Button
             android:id="@+id/notification"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="315dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="355dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/noti1" />
 
 
@@ -99,17 +100,17 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="320dp"
+        android:layout_width="370dp"
         android:layout_height="280dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="0dp"
         android:orientation="vertical"
         android:background="@drawable/cardbackgroud">
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView"
-            android:layout_width="300dp"
+            android:layout_width="350dp"
             android:layout_height="260dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp">
@@ -118,7 +119,7 @@
                 android:id="@+id/medicButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="260dp"
+                android:layout_marginLeft="310dp"
                 android:layout_marginTop="220dp"
                 android:background="@drawable/fullscreen" />
 
