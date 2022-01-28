@@ -78,7 +78,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="#716671"
         android:layout_centerVertical="true">
 
@@ -100,70 +100,30 @@
 
     <RelativeLayout
         android:layout_width="320dp"
-        android:layout_height="180dp"
+        android:layout_height="280dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="0dp"
         android:orientation="vertical"
         android:background="@drawable/cardbackgroud">
 
-        <ImageButton
-            android:id="@+id/medicButton"
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
             android:layout_width="300dp"
-            android:layout_height="160dp"
+            android:layout_height="260dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ho" />
-    </RelativeLayout>
+            android:layout_marginTop="10dp">
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="20dp"
-        android:layout_centerVertical="true">
+            <ImageButton
+                android:id="@+id/medicButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="260dp"
+                android:layout_marginTop="220dp"
+                android:background="@drawable/fullscreen" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:text="User's Current Location"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold">
+        </com.google.android.gms.maps.MapView>
 
-        </TextView>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_centerVertical="true">
-
-        <ImageView
-            android:id="@+id/map"
-            android:layout_width="380dp"
-            android:layout_height="140dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="16dp"
-            android:background="#3d373d"
-            android:textColor="@color/black">
-
-        </ImageView>
-
-        <TextView
-            android:id="@+id/userinfoTV"
-            android:layout_width="355dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:text="User info"
-            android:textColor="#FFFFFF" />
 
     </RelativeLayout>
 
