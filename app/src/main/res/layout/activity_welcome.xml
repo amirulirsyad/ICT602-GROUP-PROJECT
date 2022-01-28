@@ -57,6 +57,7 @@
             android:text="Welcome Back!"
             android:textColor="#c9c1c5"
             android:textSize="13sp" />
+
         <TextView
             android:id="@+id/username"
             android:layout_width="match_parent"
@@ -66,7 +67,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="16dp"
             android:fontFamily="@font/sticky"
-            android:text="Ismah Hadirah"
+            android:text="User's Name"
             android:textColor="#FFF"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -76,7 +77,9 @@
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:background="#716671"
         android:layout_centerVertical="true">
 
         <TextView
@@ -84,31 +87,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:layout_marginRight="16dp"
-            android:background="@color/black"
+            android:fontFamily="@font/raleway"
             android:text="Get nearest medical center near me"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="19sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="200dp"
-        android:layout_height="160dp"
-        android:layout_marginLeft="101dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="17dp"
-        android:background="@drawable/ho"
-        android:orientation="vertical">
+        android:layout_width="320dp"
+        android:layout_height="180dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="0dp"
+        android:orientation="vertical"
+        android:background="@drawable/cardbackgroud">
 
         <ImageButton
             android:id="@+id/medicButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ho" />
+            android:layout_width="300dp"
+            android:layout_height="160dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ho" />
     </RelativeLayout>
 
     <RelativeLayout
