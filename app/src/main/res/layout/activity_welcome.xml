@@ -95,23 +95,19 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="160dp"
+        android:layout_width="200dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="17dp"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/cardbackgroud">
+        android:background="@drawable/ho"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="145dp"
-            android:layout_height="145dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/cardbackgroud"
-            app:srcCompat="@drawable/ho">
-
-        </ImageView>
-
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ho" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -155,9 +151,6 @@
         </ImageView>
 
     </RelativeLayout>
-
-
-
 
 
 </LinearLayout>
