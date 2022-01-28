@@ -95,6 +95,11 @@ public class LoginActivity extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Intent intent = new Intent(LoginActivity.this, Welcome.class);
                                 startActivity(intent);
+
+                                //send data to database
+                                String user_agent = System.getProperty("http.agent");
+
+                                //end data
                             }
                             else{
                                 Toast.makeText(LoginActivity.this,"Incorrect Email/Password",Toast.LENGTH_SHORT).show();

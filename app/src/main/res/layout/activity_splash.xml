@@ -7,7 +7,7 @@
     android:background="#12123c">
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/logoH"
         android:layout_width="104dp"
         android:layout_height="96dp"
         android:layout_centerInParent="true"
@@ -16,9 +16,10 @@
     </ImageView>
 
     <TextView
+        android:id="@+id/textH"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
+        android:layout_below="@+id/logoH"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         android:fontFamily="@font/candy"
