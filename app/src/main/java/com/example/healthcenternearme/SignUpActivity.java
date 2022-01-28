@@ -114,7 +114,7 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                DatabaseReference Ref = database.getReference("Full");
+                                DatabaseReference Ref = database.getReference("Users");
 
                                 Ref.setValue(firstName);
                                 // Sign in success, update UI with the signed-in user's information
