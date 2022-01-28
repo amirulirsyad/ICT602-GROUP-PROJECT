@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -15,8 +16,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -24,6 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
     final int MIN_PASSWORD_LENGTH = 6;
 
     private FirebaseAuth mAuth;
+    userRegister userregister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,13 +103,21 @@ public class SignUpActivity extends AppCompatActivity {
     public void performSignUp (View v) {
         if (validateInput()) {
 
-            // Input is valid, here send data to your server
+            //Create object userRegister
+            userregister = new userRegister();
 
+            // Input is valid, here send data to your server
             String firstName = etFirstName.getText().toString();
             String lastName = etUserName.getText().toString();
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
             String repeatPassword = etRepeatPassword.getText().toString();
+
+            //Set value to object
+            userregister.setFullName(firstName);
+            userregister.setUserName(lastName);
+            userregister.setEmail(email);
+
 
             Toast.makeText(this,"Login Success",Toast.LENGTH_SHORT).show();
             // Here you can call you API
@@ -113,10 +126,30 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                DatabaseReference Ref = database.getReference("Users");
+                                FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");
+                                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+                                String userID = currentFirebaseUser.getUid();
+                                Log.d("TEST", userID);
+                                DatabaseReference ref = database.getReference("register").child(userID) ; //nama table
 
-                                Ref.setValue(firstName);
+
+                                //Firebase insert data
+                                ref.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        ref.setValue(userregister);
+                                        Log.d("ABC", "Firebase SUCCESS");
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        //TO BE COMPLETE
+                                        Log.w("ABCD", "FIREBASE FAILED");
+                                    }
+                                });
+                                //firebase insert data
+
+
                                 // Sign in success, update UI with the signed-in user's information
                                 //Log.d(TAG, "createUserWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
