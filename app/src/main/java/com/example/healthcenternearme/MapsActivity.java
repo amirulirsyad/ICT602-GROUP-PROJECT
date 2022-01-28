@@ -79,9 +79,17 @@ public class MapsActivity extends AppCompatActivity
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(120000); // two minute interval
-        mLocationRequest.setFastestInterval(120000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        mLocationRequest.setInterval(100); // two minute interval
+        mLocationRequest.setFastestInterval(3000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
+        /*LocationRequest mLocationRequest = LocationRequest.create() //if you want access of variable
+                .setInterval(100)
+                .setFastestInterval(3000)
+                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                .setNumUpdates(1)
+                .setMaxWaitTime(100);*/
+
         /*LocationRequest mLocationRequest = LocationRequest.create();
                 .setInterval(100)
                 .setFastestInterval(120000)

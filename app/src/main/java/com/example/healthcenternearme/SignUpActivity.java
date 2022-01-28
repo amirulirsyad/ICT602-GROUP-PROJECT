@@ -2,6 +2,8 @@ package com.example.healthcenternearme;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -118,6 +120,8 @@ public class SignUpActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 //Log.d(TAG, "createUserWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
+                                startActivity(intent);
                                 //updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
