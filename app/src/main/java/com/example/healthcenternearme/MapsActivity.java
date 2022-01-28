@@ -33,7 +33,16 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import java.util.List;
@@ -48,6 +57,8 @@ public class MapsActivity extends AppCompatActivity
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
 
+    userRegister userregister;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +71,9 @@ public class MapsActivity extends AppCompatActivity
         mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFrag.getMapAsync(this);
 
+
         //test
+
     }
 
     @Override
@@ -79,22 +92,9 @@ public class MapsActivity extends AppCompatActivity
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(100); // two minute interval
-        mLocationRequest.setFastestInterval(3000);
+        mLocationRequest.setInterval(30000); // two minute interval
+        mLocationRequest.setFastestInterval(30000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
-        /*LocationRequest mLocationRequest = LocationRequest.create() //if you want access of variable
-                .setInterval(100)
-                .setFastestInterval(3000)
-                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                .setNumUpdates(1)
-                .setMaxWaitTime(100);*/
-
-        /*LocationRequest mLocationRequest = LocationRequest.create();
-                .setInterval(100)
-                .setFastestInterval(120000)
-                .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);*/
-
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
@@ -134,6 +134,36 @@ public class MapsActivity extends AppCompatActivity
                 markerOptions.title("Current Position");
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
                 mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
+
+                //send data to database
+                FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");
+                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+                String userID = currentFirebaseUser.getUid();
+                DatabaseReference ref = database.getReference("userinfo").child(userID) ; //nama table
+                Date time = Calendar.getInstance().getTime();
+                String user_agent = System.getProperty("http.agent");
+
+
+                userregister = new userRegister();
+                userregister.setDate(String.valueOf(time));
+                userregister.setUserCoordinate(String.valueOf(latLng));
+                userregister.setUserAgent(user_agent);
+                String firstName = userregister.getFullName();
+
+
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ref.setValue(userregister);
+                        Log.d("cadcem","Firebase success");
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    //simpan
+                        Log.d("cadcem1","Firebase failed");
+                    }
+                });
 
                 //move map camera
                 mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
