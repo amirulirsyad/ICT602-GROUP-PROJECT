@@ -56,6 +56,7 @@ public class MapsActivity extends AppCompatActivity
     Location mLastLocation;
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
+    private int PROXIMITY_RADIUS = 10000;
 
     userRegister userregister;
 
@@ -136,6 +137,17 @@ public class MapsActivity extends AppCompatActivity
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
                 mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
 
+                //TEST MAP
+                String Hospital = "hospital";
+                String url = getUrl(location.getLatitude(),location.getLongitude(),Hospital);
+                Object[] Data = new Object[2];
+                Data[0] = mGoogleMap;
+                Data[1] = url;
+                GetNearbyPlacesData get = new GetNearbyPlacesData();
+                get.execute(Data);
+                Log.d("FA","HOSPITAL success");
+                //TEST MAP
+
                 //Get Full name
                 FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");
                 FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
@@ -188,9 +200,23 @@ public class MapsActivity extends AppCompatActivity
                 //move map camera
                 mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
 
+
+
             }
         };
     };
+
+    private String getUrl(double latitude, double longitude, String nearbyPlace) {
+
+        StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googlePlacesUrl.append("location=" + latitude + "," + longitude);
+        googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
+        googlePlacesUrl.append("&type=" + nearbyPlace);
+        googlePlacesUrl.append("&sensor=true");
+        googlePlacesUrl.append("&key=" + "AIzaSyAy4hWUGyRLVpSFdTYxAewQWyqte_Helrc");
+        Log.d("getUrl", googlePlacesUrl.toString());
+        return (googlePlacesUrl.toString());
+    }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private void checkLocationPermission() {
