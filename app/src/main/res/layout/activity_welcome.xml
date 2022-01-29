@@ -33,7 +33,7 @@
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="600dp"
-                android:background="##12123c"
+                android:background="#12123c"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -135,17 +135,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/option">
 
-                <com.google.android.gms.maps.MapView
-                    android:id="@+id/mapView"
-                    android:layout_width="350dp"
-                    android:layout_height="360dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+
+                    <fragment android:id="@+id/mapView"
+                        android:layout_width="350dp"
+                        android:layout_height="360dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        tools:context=".map.MapsActivity"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:name="com.google.android.gms.maps.SupportMapFragment">
 
                     <ImageButton
                         android:id="@+id/medicButton"
@@ -155,7 +157,7 @@
                         android:layout_marginTop="320dp"
                         android:background="@drawable/fullscreen" />
 
-                </com.google.android.gms.maps.MapView>
+                </fragment>
             </FrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
