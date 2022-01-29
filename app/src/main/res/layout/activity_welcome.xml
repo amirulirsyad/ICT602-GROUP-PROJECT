@@ -114,17 +114,18 @@
         android:background="@drawable/cardbackgroud">
 
 
-            <fragment android:id="@+id/mapViews"
-                android:layout_width="350dp"
-                android:layout_height="360dp"
-                tools:context=".map.MapsActivity"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:name="com.google.android.gms.maps.SupportMapFragment">
+        <fragment
+            android:id="@+id/mapViews"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="350dp"
+            android:layout_height="360dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".map.MapsActivity">
 
             <ImageButton
                 android:id="@+id/medicButton"
