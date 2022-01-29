@@ -1,10 +1,14 @@
 package com.example.healthcenternearme;
 
+import static com.example.healthcenternearme.R.drawable.*;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -16,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -34,6 +39,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -68,7 +74,11 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     Location mLastLocation;
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
     //Google Map
+
+    boolean slidestate = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +102,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap)
     {
         mGoogleMap = googleMap;
-        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(30000); // two minute interval
@@ -295,9 +305,8 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
             }
         });
 
-
-
     }
+
     public void name(){
 
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");

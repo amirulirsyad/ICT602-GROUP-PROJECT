@@ -60,6 +60,10 @@ public class MapsActivity extends AppCompatActivity
 
     userRegister userregister;
 
+    boolean check1 = false;
+    boolean check2 = false;
+    boolean check3 = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +94,7 @@ public class MapsActivity extends AppCompatActivity
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mGoogleMap = googleMap;
-        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(30000); // two minute interval
@@ -161,7 +165,12 @@ public class MapsActivity extends AppCompatActivity
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         userRegister ur = snapshot.getValue(userRegister.class);
-                        userregister.setFullName(ur.getFullName());
+                        if(!check1)
+                        {
+                            userregister.setFullName(ur.getFullName());
+                            check1 = true;
+                        }
+
                     }
 
                     @Override
@@ -198,7 +207,12 @@ public class MapsActivity extends AppCompatActivity
                 });
 
                 //move map camera
-                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
+                if(!check2)
+                {
+                    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
+                    check2 = true;
+                }
+
 
 
 
