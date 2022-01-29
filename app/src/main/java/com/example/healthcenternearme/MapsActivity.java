@@ -118,6 +118,7 @@ public class MapsActivity extends AppCompatActivity
         @Override
         public void onLocationResult(LocationResult locationResult) {
             List<Location> locationList = locationResult.getLocations();
+            String firstName;
             if (locationList.size() > 0) {
                 //The last location in the list is the newest
                 Location location = locationList.get(locationList.size() - 1);
@@ -135,11 +136,30 @@ public class MapsActivity extends AppCompatActivity
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
                 mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
 
-                //send data to database
+                //Get Full name
                 FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");
                 FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
                 String userID = currentFirebaseUser.getUid();
                 DatabaseReference ref = database.getReference("userinfo").child(userID) ; //nama table
+                DatabaseReference refer = database.getReference("register").child(userID) ;
+                userregister = new userRegister();
+                String name;
+
+                refer.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        userRegister ur = snapshot.getValue(userRegister.class);
+                        userregister.setFullName(ur.getFullName());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.w("TEST","Error",error.toException());
+                    }
+                });
+
+
+                //send data to database
                 Date time = Calendar.getInstance().getTime();
                 String user_agent = System.getProperty("http.agent");
 
@@ -148,7 +168,7 @@ public class MapsActivity extends AppCompatActivity
                 userregister.setDate(String.valueOf(time));
                 userregister.setUserCoordinate(String.valueOf(latLng));
                 userregister.setUserAgent(user_agent);
-                String firstName = userregister.getFullName();
+
 
 
                 ref.addValueEventListener(new ValueEventListener() {
