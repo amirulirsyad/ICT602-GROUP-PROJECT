@@ -82,7 +82,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
         //Google Map
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapViews);
+        mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
         mapFrag.getMapAsync(this);
         //Google Map
     }
