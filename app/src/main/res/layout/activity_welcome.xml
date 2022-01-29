@@ -113,22 +113,29 @@
         android:orientation="vertical"
         android:background="@drawable/cardbackgroud">
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapViews"
-            android:layout_width="350dp"
-            android:layout_height="360dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp">
+
+            <fragment android:id="@+id/mapViews"
+                android:layout_width="350dp"
+                android:layout_height="360dp"
+                tools:context=".map.MapsActivity"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:name="com.google.android.gms.maps.SupportMapFragment">
 
             <ImageButton
                 android:id="@+id/medicButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/fullscreen" />
+                android:background="@drawable/fullscreen"
+                android:contentDescription="test" />
 
-        </com.google.android.gms.maps.MapView>
+        </fragment>
 
 
     </RelativeLayout>
