@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#12123c">
-
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -20,19 +19,22 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="18dp"
             android:layout_marginRight="100dp"
-            android:fontFamily="@font/minotaur"
-            android:text="AppName"
+            android:fontFamily="@font/motion"
+            android:text="Healthcare Points"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold" />
 
-        <Button
+        <com.google.android.material.navigation.NavigationView
             android:id="@+id/menubar"
-            android:layout_width="62dp"
-            android:layout_height="53dp"
-            android:layout_marginRight="300dp"
-            android:background="@drawable/bar" />
+            android:layout_width="42dp"
+            android:layout_height="33dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/barwhite">
+
+        </com.google.android.material.navigation.NavigationView>
 
         <Button
             android:id="@+id/notification"
@@ -48,7 +50,7 @@
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="95dp"
         android:layout_centerVertical="true">
 
         <TextView
@@ -69,10 +71,10 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="16dp"
-            android:fontFamily="@font/sticky"
+            android:fontFamily="@font/playfair"
             android:text="User's Name"
             android:textColor="#FFF"
-            android:textSize="30sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -102,33 +104,31 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="373dp"
-        android:layout_height="416dp"
+        android:layout_width="370dp"
+        android:layout_height="280dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="0dp"
-        android:background="@drawable/cardbackgroud"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/cardbackgroud">
 
-
-        <androidx.fragment.app.FragmentContainerView
+        <com.google.android.gms.maps.MapView
             android:id="@+id/mapViews"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="350dp"
+            android:layout_height="260dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
 
-        <ImageButton
-            android:id="@+id/medicButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="310dp"
-            android:layout_marginTop="220dp"
-            android:background="@drawable/fullscreen"
-            android:contentDescription="TODO" />
+            <ImageButton
+                android:id="@+id/medicButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/fullscreen" />
+
+        </com.google.android.gms.maps.MapView>
+
 
     </RelativeLayout>
 

@@ -19,24 +19,27 @@
             android:layout_marginLeft="100dp"
             android:layout_marginTop="18dp"
             android:layout_marginRight="100dp"
-            android:fontFamily="@font/minotaur"
-            android:text="AppName"
+            android:fontFamily="@font/motion"
+            android:text="Healthcare Points"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="32sp"
             android:textStyle="bold" />
+
         <Button
             android:id="@+id/menubar"
-            android:layout_width="62dp"
-            android:layout_height="53dp"
-            android:layout_marginRight="300dp"
-            android:background="@drawable/bar" />
+            android:layout_width="42dp"
+            android:layout_height="33dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/barblack" />
+
         <Button
             android:id="@+id/notification"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="315dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="355dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/noti1" />
 
 
@@ -66,10 +69,10 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="16dp"
-            android:fontFamily="@font/sticky"
+            android:fontFamily="@font/playfair"
             android:text="User's Name"
             android:textColor="#000"
-            android:textSize="30sp"
+            android:textSize="26dp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -78,7 +81,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="#b2bde2"
         android:layout_centerVertical="true">
 
@@ -99,62 +102,31 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="320dp"
-        android:layout_height="180dp"
+        android:layout_width="370dp"
+        android:layout_height="380dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="0dp"
         android:orientation="vertical"
         android:background="@drawable/cardbackgroundlight">
 
-        <ImageButton
-            android:id="@+id/medicButton"
-            android:layout_width="300dp"
-            android:layout_height="160dp"
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="350dp"
+            android:layout_height="360dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ho" />
-    </RelativeLayout>
+            android:layout_marginTop="10dp">
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="20dp"
-        android:layout_centerVertical="true">
+            <ImageButton
+                android:id="@+id/medicButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="320dp"
+                android:background="@drawable/fullscreen" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:text="User's Current Location"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold">
+        </com.google.android.gms.maps.MapView>
 
-        </TextView>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_centerVertical="true">
-
-        <ImageView
-            android:id="@+id/map"
-            android:layout_width="380dp"
-            android:layout_height="140dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="16dp"
-            android:background="#b2bde2"
-            android:textColor="@color/black">
-
-        </ImageView>
 
     </RelativeLayout>
 
