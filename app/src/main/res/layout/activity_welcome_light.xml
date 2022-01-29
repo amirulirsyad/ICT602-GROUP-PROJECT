@@ -96,11 +96,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/greeting"
                 android:layout_marginStart="30dp"
-                android:fontFamily="@font/playfair"
+                android:fontFamily="@font/raleway"
                 android:text="User's Name"
                 android:textColor="#000"
-                android:textSize="26dp"
-                android:textStyle="bold"
+                android:textSize="23dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/greeting" />
 
@@ -151,8 +150,8 @@
                         android:id="@+id/medicButton"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginLeft="310dp"
-                        android:layout_marginTop="320dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/fullscreen" />
 
                 </com.google.android.gms.maps.MapView>
