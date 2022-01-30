@@ -77,6 +77,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     ImageButton medBtn;
     Button adminBtn;
 
+
     userRegister userregister;
 
     //Google Map
@@ -132,7 +133,11 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         boolean check2 = false;
         boolean check3 = false;
         //Hop
-    }
+    }//end oncreate
+
+    public void profilePage(View view){
+        Intent intent = new Intent(this,Profile.class);
+        startActivity(intent);
 
     //DRAWER
     @Override
@@ -144,6 +149,8 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
             super.onBackPressed();
         }
     }
+
+
 
 
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
