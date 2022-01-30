@@ -103,6 +103,38 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     private ActivityWelcomeBinding binding;
 
 
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_welcome);
+
+        name();
+        viewInitializations();
+        //adminSetting();
+
+        firstName = findViewById(R.id.username);
+
+        //Nav Draw
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        //Nav Draw
+
+
+        //Google Map
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
+        mapFrag.getMapAsync(this);
+        //Google Map
+
+        //Hosp
+        boolean check1 = false;
+        boolean check2 = false;
+        boolean check3 = false;
+        //Hop
+    }
+
+    //DRAWER
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
@@ -113,8 +145,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         }
     }
 
-    NavigationView navigationView = findViewById(R.id.nav_view);
-    @Override
+
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
 
@@ -136,35 +167,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-
-        name();
-        viewInitializations();
-        //adminSetting();
-
-        firstName = findViewById(R.id.username);
-
-        //Nav Draw
-
-        //Nav Draw
-
-
-        //Google Map
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
-        mapFrag.getMapAsync(this);
-        //Google Map
-
-        //Hosp
-        boolean check1 = false;
-        boolean check2 = false;
-        boolean check3 = false;
-        //Hop
-    }
+    //DRAWER
 
     //Google Map
     @Override
