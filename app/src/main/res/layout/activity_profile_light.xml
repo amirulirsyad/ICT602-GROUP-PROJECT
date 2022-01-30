@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#12123c">
+    android:background="#e6effe">
 
     <TextView
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:fontFamily="@font/minotaur"
         android:text="My Profile"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
         android:layout_marginTop="236dp"
         android:fontFamily="@font/raleway"
         android:text="Full Name :"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
         android:layout_marginTop="318dp"
         android:fontFamily="@font/raleway"
         android:text="Username :"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +100,7 @@
         android:layout_marginTop="380dp"
         android:fontFamily="@font/raleway"
         android:text="Email :"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +129,7 @@
         android:layout_marginTop="442dp"
         android:fontFamily="@font/raleway"
         android:text="User Agent :"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,7 +158,7 @@
         android:layout_marginTop="508dp"
         android:fontFamily="@font/raleway"
         android:text="User Coordinate:"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -182,4 +182,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

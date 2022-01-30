@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,238 +7,224 @@
     android:orientation="vertical"
     android:background="#12123c">
 
+
     <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/minotaur"
-            android:text="About Us"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="26sp"
-            android:textStyle="bold">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/minotaur"
+        android:text="About Us"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/cardbackgroundbu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="108dp"
+        android:fontFamily="@font/collegiate"
+        android:text="MUHAMMAD FARIS AMMAR BIN ZULKIFLE"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="148dp"
+        android:fontFamily="@font/collegiate"
+        android:text="2020847256"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="10dp"
-        android:layout_centerVertical="true">
+    <ImageView
+        android:layout_width="92dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/faris">
 
-        <TextView
-            android:layout_width="340dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/cardbackgroundlight">
+    </ImageView>
 
 
-        </TextView>
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/cardbackgroundbu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="92dp"
-            android:layout_height="102dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/faris"></ImageView>
+    </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="50dp"
-            android:text="MUHAMMAD FARIS AMMAR BIN ZULKIFLE"
-            android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="248dp"
+        android:fontFamily="@font/collegiate"
+        android:text="MUHAMMAD AMIRUL IRSYAD BIN MOHD RASHID"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="80dp"
-            android:text="2020847256"
-            android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
+    </TextView>
 
-    </RelativeLayout>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="288dp"
+        android:fontFamily="@font/collegiate"
+        android:text="2020489528"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_centerVertical="true">
+    </TextView>
 
-        <TextView
-            android:layout_width="340dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/cardbackgroundlight">
-        </TextView>
+    <ImageView
+        android:layout_width="92dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="204dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/irsyad">
 
-        <ImageView
-            android:layout_width="92dp"
-            android:layout_height="102dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/irsyad"></ImageView>
+    </ImageView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="50dp"
-            android:text="MUHAMMAD AMIRUL IRSYAD BIN MOHD RASHID"
-            android:textColor="#000"
-            android:textStyle="bold"></TextView>
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="380dp"
+        android:background="@drawable/cardbackgroundbu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="90dp"
-            android:text="2020489528"
-            android:textColor="#000"
-            android:textStyle="bold"></TextView>
+    </TextView>
 
-    </RelativeLayout>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="388dp"
+        android:fontFamily="@font/collegiate"
+        android:text="MOHAMAD DANISH FAZWAN BIN MOHD ROSOLIZA"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_centerVertical="true">
+    </TextView>
 
-        <TextView
-            android:layout_width="340dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/cardbackgroundlight">
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="428dp"
+        android:fontFamily="@font/collegiate"
+        android:text="2020490082"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        </TextView>
-        <ImageView
-            android:layout_width="92dp"
-            android:layout_height="102dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/fazwan">
-        </ImageView>
+    </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="50dp"
-            android:text="MOHAMAD DANISH FAZWAN BIN MOHD ROSOLIZA"
-            android:textColor="#000"
-            android:textStyle="bold"></TextView>
+    <ImageView
+        android:layout_width="92dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="344dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fazwan">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="90dp"
-            android:text="2020490082"
-            android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
+    </ImageView>
 
-    </RelativeLayout>
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="520dp"
+        android:background="@drawable/cardbackgroundbu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_centerVertical="true">
+    </TextView>
 
-        <TextView
-            android:layout_width="340dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/cardbackgroundlight">
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="528dp"
+        android:fontFamily="@font/collegiate"
+        android:text="ISMAH HADIRAH BINTI MD ISA"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        </TextView>
-        <ImageView
-            android:layout_width="92dp"
-            android:layout_height="102dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ismah">
-        </ImageView>
+    </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="50dp"
-            android:text="ISMAH HADIRAH BINTI MD ISA"
-            android:textColor="#000"
-            android:textStyle="bold"></TextView>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="568dp"
+        android:fontFamily="@font/collegiate"
+        android:text="2020476688"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="80dp"
-            android:text="2020476688"
-            android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
+    </TextView>
 
-    </RelativeLayout>
+    <ImageView
+        android:layout_width="92dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="484dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ismah">
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_centerVertical="true">
+    </ImageView>
 
 
-        <TextView
-            android:layout_width="340dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/cardbackgroundlight">
-
-        </TextView>
-
-        <ImageView
-            android:layout_width="92dp"
-            android:layout_height="102dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/mirza">
-        </ImageView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="50dp"
-            android:text="MIRZA AFRINA BINTI YUSOF"
-            android:textColor="#000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="80dp"
-            android:text="2020872682"
-            android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
-
-    </RelativeLayout>
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
