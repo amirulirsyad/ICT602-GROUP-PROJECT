@@ -27,6 +27,8 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        profile();
+
         firstName = findViewById(R.id.fullnamedata);
         username = findViewById(R.id.usernamedata);
         email = findViewById(R.id.emaildata);
