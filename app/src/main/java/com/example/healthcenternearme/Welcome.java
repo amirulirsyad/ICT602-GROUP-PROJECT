@@ -10,11 +10,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -69,13 +65,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import com.example.healthcenternearme.databinding.ActivityWelcomeBinding;
+
 
 public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
     TextView firstName;
     ImageButton medBtn;
-    Button adminBtn;
+    Button adminBtn, notifBtn;
 
 
     userRegister userregister;
@@ -100,8 +96,6 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
     private int PROXIMITY_RADIUS = 5000;
 
-    private AppBarConfiguration mAppBarConfiguration;
-    private ActivityWelcomeBinding binding;
 
 
 
@@ -115,7 +109,9 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         viewInitializations();
         //adminSetting();
 
+
         firstName = findViewById(R.id.username);
+        notifBtn = findViewById(R.id.notification);
 
         //Nav Draw
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -128,6 +124,14 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         mapFrag.getMapAsync(this);
         //Google Map
 
+        notifBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Welcome.this, Profile.class);
+                startActivity(intent);
+            }
+        });
+
         //Hosp
         boolean check1 = false;
         boolean check2 = false;
@@ -135,22 +139,8 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         //Hop
     }//end oncreate
 
-    public void profilePage(View view){
-        Intent intent = new Intent(this,Profile.class);
-        startActivity(intent);
 
     //DRAWER
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else {
-            super.onBackPressed();
-        }
-    }
-
-
 
 
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
