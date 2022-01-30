@@ -32,21 +32,24 @@
                 android:id="@+id/toolbar2"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
                 android:layout_marginBottom="600dp"
                 android:background="#12123c"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/menubar"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="305dp"
                 android:background="@drawable/barwhite"
                 app:layout_constraintEnd_toStartOf="@+id/notification"
@@ -57,7 +60,7 @@
                 android:id="@+id/AppName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/lumphong"
                 android:text="Healthcare Points"
                 android:textAlignment="center"
@@ -84,11 +87,13 @@
                 android:layout_width="127dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="110dp"
                 android:text="Welcome Back!"
                 android:textColor="#c9c1c5"
                 android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/username"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/username"
@@ -96,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/greeting"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/raleway"
                 android:text="User's Name"
                 android:textColor="@color/white"
@@ -107,7 +113,7 @@
                 android:id="@+id/option"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:background="#716671"
                 android:fontFamily="@font/raleway"
                 android:text="Get nearest medical center near me"
