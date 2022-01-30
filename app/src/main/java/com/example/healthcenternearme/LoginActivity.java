@@ -113,8 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent = new Intent(LoginActivity.this, Welcome.class);
                                 startActivity(intent);
 
-                                //send data to database
-                                String user_agent = System.getProperty("http.agent");
+
 
                                 //end data
                             }

@@ -5,6 +5,7 @@ public class userRegister {
     private String fullName;
     private String username;
     private String email;
+    private String permission;
 
     private String date;
     private String userAgent;
@@ -73,5 +74,15 @@ public class userRegister {
     public void setUserCoordinate(String uc)
     {
         this.userCoordinate = uc;
+    }
+
+    public String getPermission()
+    {
+        return permission;
+    }
+
+    public void setPermission(String per)
+    {
+        this.permission = per;
     }
 }

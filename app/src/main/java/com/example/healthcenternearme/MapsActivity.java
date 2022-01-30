@@ -95,11 +95,15 @@ public class MapsActivity extends AppCompatActivity
     public void onMapReady(GoogleMap googleMap) {
         mGoogleMap = googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mGoogleMap.setMinZoomPreference(13);
 
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(30000); // two minute interval
-        mLocationRequest.setFastestInterval(30000);
+        LocationRequest mLocationRequest = LocationRequest.create();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest.setInterval(100);
+        mLocationRequest.setFastestInterval(600000);
+        mLocationRequest.setSmallestDisplacement(10);
+
+
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
@@ -108,6 +112,7 @@ public class MapsActivity extends AppCompatActivity
                 //Location Permission already granted
                 mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
                 mGoogleMap.setMyLocationEnabled(true);
+
             } else {
                 //Request Location Permission
                 checkLocationPermission();
@@ -123,7 +128,6 @@ public class MapsActivity extends AppCompatActivity
         @Override
         public void onLocationResult(LocationResult locationResult) {
             List<Location> locationList = locationResult.getLocations();
-            String firstName;
             if (locationList.size() > 0) {
                 //The last location in the list is the newest
                 Location location = locationList.get(locationList.size() - 1);
@@ -164,9 +168,9 @@ public class MapsActivity extends AppCompatActivity
                 refer.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        userRegister ur = snapshot.getValue(userRegister.class);
                         if(!check1)
                         {
+                            userRegister ur = snapshot.getValue(userRegister.class);
                             userregister.setFullName(ur.getFullName());
                             check1 = true;
                         }
@@ -195,8 +199,13 @@ public class MapsActivity extends AppCompatActivity
                 ref.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        ref.setValue(userregister);
-                        Log.d("cadcem","Firebase success");
+                        if(!check3)
+                        {
+                            ref.setValue(userregister);
+                            Log.d("cadcem","Firebase success");
+                            check3 = true;
+                        }
+
                     }
 
                     @Override
@@ -212,9 +221,6 @@ public class MapsActivity extends AppCompatActivity
                     mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
                     check2 = true;
                 }
-
-
-
 
             }
         };

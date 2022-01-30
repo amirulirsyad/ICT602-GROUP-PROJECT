@@ -79,6 +79,11 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     //Google Map
 
     boolean slidestate = false;
+    boolean check1 = false;
+    boolean check2 = false;
+    boolean check3 = false;
+
+    private int PROXIMITY_RADIUS = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +100,12 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
         mapFrag.getMapAsync(this);
         //Google Map
+
+        //Hosp
+        boolean check1 = false;
+        boolean check2 = false;
+        boolean check3 = false;
+        //Hop
     }
 
     //Google Map
@@ -103,11 +114,14 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     {
         mGoogleMap = googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mGoogleMap.setMinZoomPreference(13);
 
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(30000); // two minute interval
-        mLocationRequest.setFastestInterval(30000);
+        LocationRequest mLocationRequest = LocationRequest.create();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest.setInterval(100);
+        mLocationRequest.setFastestInterval(600000);
+        mLocationRequest.setSmallestDisplacement(10);
+
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
@@ -116,6 +130,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
                 //Location Permission already granted
                 mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
                 mGoogleMap.setMyLocationEnabled(true);
+
             } else {
                 //Request Location Permission
                 checkLocationPermission();
@@ -124,6 +139,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         else {
             mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
             mGoogleMap.setMyLocationEnabled(true);
+
         }
 
     }
@@ -132,7 +148,6 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         @Override
         public void onLocationResult(LocationResult locationResult) {
             List<Location> locationList = locationResult.getLocations();
-            String firstName;
             if (locationList.size() > 0) {
                 //The last location in the list is the newest
                 Location location = locationList.get(locationList.size() - 1);
@@ -150,6 +165,18 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
                 mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
 
+
+
+                //TEST MAP
+                String Hospital = "hospital";
+                String url = getUrl(location.getLatitude(),location.getLongitude(),Hospital);
+                Object[] Data = new Object[2];
+                Data[0] = mGoogleMap;
+                Data[1] = url;
+                GetNearbyPlacesData get = new GetNearbyPlacesData();
+                get.execute(Data);
+                //TEST MAP
+
                 //Get Full name
                 FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");
                 FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
@@ -163,7 +190,10 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         userRegister ur = snapshot.getValue(userRegister.class);
-                        userregister.setFullName(ur.getFullName());
+                        if (!check1) {
+                            userregister.setFullName(ur.getFullName());
+                            check1 = true;
+                        }
                     }
 
                     @Override
@@ -189,7 +219,6 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         ref.setValue(userregister);
-                        Log.d("cadcem","Firebase success");
                     }
 
                     @Override
@@ -200,11 +229,27 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
                 });
 
                 //move map camera
-                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
+                if(!check2)
+                {
+                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
+                    check2 = true;
+                }
 
             }
         };
     };
+
+    private String getUrl(double latitude, double longitude, String nearbyPlace) {
+
+        StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googlePlacesUrl.append("location=" + latitude + "," + longitude);
+        googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
+        googlePlacesUrl.append("&type=" + nearbyPlace);
+        googlePlacesUrl.append("&sensor=true");
+        googlePlacesUrl.append("&key=" + "AIzaSyAy4hWUGyRLVpSFdTYxAewQWyqte_Helrc");
+        //Log.d("getUrl", googlePlacesUrl.toString());
+        return (googlePlacesUrl.toString());
+    }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private void checkLocationPermission() {
@@ -320,13 +365,17 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userRegister ur = snapshot.getValue(userRegister.class);
-                Log.d("TEST","Value = "+ur.getFullName());
-                firstName.setText(ur.getFullName());
+                if(!check3)
+                {
+                    firstName.setText(ur.getFullName());
+                    check3 = true;
+                }
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("TEST","Error",error.toException());
+                //Log.w("TEST","Error",error.toException());
             }
         });
 

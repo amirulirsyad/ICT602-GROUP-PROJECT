@@ -10,12 +10,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * @author Priyanka
- */
-
-
-
 public class DownloadURL {
 
     public String readUrl(String myUrl) throws IOException
@@ -51,7 +45,7 @@ public class DownloadURL {
             inputStream.close();
             urlConnection.disconnect();
         }
-        Log.d("DownloadURL","Returning data= "+data);
+        //Log.d("DownloadURL","Returning data= "+data);
 
         return data;
     }

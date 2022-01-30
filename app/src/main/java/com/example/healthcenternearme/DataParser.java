@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @author Priyanka
- */
-
 public class DataParser {
 
     private HashMap<String, String> getPlace(JSONObject googlePlaceJson)
@@ -25,7 +21,7 @@ public class DataParser {
         String longitude="";
         String reference="";
 
-        Log.d("DataParser","jsonobject ="+googlePlaceJson.toString());
+        //Log.d("DataParser","jsonobject ="+googlePlaceJson.toString());
 
 
         try {
@@ -78,7 +74,7 @@ public class DataParser {
         JSONArray jsonArray = null;
         JSONObject jsonObject;
 
-        Log.d("json data", jsonData);
+      //  Log.d("json data", jsonData);
 
         try {
             jsonObject = new JSONObject(jsonData);

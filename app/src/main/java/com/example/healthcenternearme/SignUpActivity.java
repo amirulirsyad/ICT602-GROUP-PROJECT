@@ -117,6 +117,7 @@ public class SignUpActivity extends AppCompatActivity {
             userregister.setFullName(firstName);
             userregister.setUserName(lastName);
             userregister.setEmail(email);
+            userregister.setPermission("User");
 
 
             Toast.makeText(this,"Login Success",Toast.LENGTH_SHORT).show();
