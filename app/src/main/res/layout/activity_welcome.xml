@@ -76,7 +76,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/noti1"
+                android:background="@drawable/profilewelcome"
                 app:layout_constraintBottom_toBottomOf="@+id/AppName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/menubar"
