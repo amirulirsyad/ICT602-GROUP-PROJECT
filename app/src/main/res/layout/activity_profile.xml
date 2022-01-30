@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#12123c">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,34 +23,35 @@
     <ImageView
         android:layout_width="156dp"
         android:layout_height="146dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/cardbackgroundcircle"
-        app:srcCompat="@drawable/ic_profile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_profile">
+
     </ImageView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="228dp"
         android:fontFamily="@font/raleway"
         android:text="Full Name :"
         android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
-    </TextView>
     <TextView
         android:id="@+id/fullnamedata"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="30dp"
+        android:layout_width="360dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="256dp"
         android:fontFamily="@font/raleway"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -60,10 +61,10 @@
     </TextView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="300dp"
         android:fontFamily="@font/raleway"
         android:text="Username :"
         android:textColor="@color/white"
@@ -73,12 +74,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
     <TextView
         android:id="@+id/usernamedata"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="30dp"
+        android:layout_width="362dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="328dp"
         android:fontFamily="@font/raleway"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -90,8 +92,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="376dp"
         android:fontFamily="@font/raleway"
         android:text="Email :"
         android:textColor="@color/white"
@@ -101,12 +103,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
     <TextView
         android:id="@+id/emaildata"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="30dp"
+        android:layout_width="362dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="404dp"
         android:fontFamily="@font/raleway"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -116,10 +119,10 @@
     </TextView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
+        android:layout_width="246dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="456dp"
         android:fontFamily="@font/raleway"
         android:text="User Agent :"
         android:textColor="@color/white"
@@ -129,12 +132,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
     <TextView
         android:id="@+id/useragentdata"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="30dp"
+        android:layout_width="362dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="484dp"
         android:fontFamily="@font/raleway"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -144,10 +148,10 @@
     </TextView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
+        android:layout_width="249dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="532dp"
         android:fontFamily="@font/raleway"
         android:text="User Coordinate:"
         android:textColor="@color/white"
@@ -157,12 +161,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
     <TextView
         android:id="@+id/usercoordinatedata"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="30dp"
+        android:layout_width="363dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="560dp"
         android:fontFamily="@font/raleway"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -170,6 +175,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
