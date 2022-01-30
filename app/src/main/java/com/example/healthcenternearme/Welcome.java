@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -27,6 +28,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -85,7 +87,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
     DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    //NavigationView navigationView;
     //Google Map
 
     boolean slidestate = false;
@@ -99,6 +101,41 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityWelcomeBinding binding;
+
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
+
+    NavigationView navigationView = findViewById(R.id.nav_view);
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()){
+
+            case R.id.nav_profile:
+                Intent intent = new Intent(Welcome.this,Profile.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_aboutus:
+                Intent intent1 = new Intent(Welcome.this,AboutUs.class);
+                startActivity(intent1);
+                break;
+
+            case R.id.nav_share:
+                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -43,8 +43,7 @@
             android:layout_height="102dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/faris">
-        </ImageView>
+            android:background="@drawable/faris"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -81,13 +80,13 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/cardbackgroundlight">
         </TextView>
+
         <ImageView
             android:layout_width="92dp"
             android:layout_height="102dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/irsyad">
-        </ImageView>
+            android:background="@drawable/irsyad"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -96,8 +95,7 @@
             android:layout_marginTop="50dp"
             android:text="MUHAMMAD AMIRUL IRSYAD BIN MOHD RASHID"
             android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
+            android:textStyle="bold"></TextView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -106,8 +104,7 @@
             android:layout_marginTop="90dp"
             android:text="2020489528"
             android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
+            android:textStyle="bold"></TextView>
 
     </RelativeLayout>
 
@@ -140,8 +137,7 @@
             android:layout_marginTop="50dp"
             android:text="MOHAMAD DANISH FAZWAN BIN MOHD ROSOLIZA"
             android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
+            android:textStyle="bold"></TextView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -184,8 +180,7 @@
             android:layout_marginTop="50dp"
             android:text="ISMAH HADIRAH BINTI MD ISA"
             android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
+            android:textStyle="bold"></TextView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -222,6 +217,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/mirza">
         </ImageView>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -229,8 +225,7 @@
             android:layout_marginTop="50dp"
             android:text="MIRZA AFRINA BINTI YUSOF"
             android:textColor="#000"
-            android:textStyle="bold">
-        </TextView>
+            android:textStyle="bold"></TextView>
 
         <TextView
             android:layout_width="wrap_content"
