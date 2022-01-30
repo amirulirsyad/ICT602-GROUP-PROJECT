@@ -120,7 +120,7 @@ public class SignUpActivity extends AppCompatActivity {
             userregister.setPermission("User");
 
 
-            Toast.makeText(this,"Login Success",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Register Success",Toast.LENGTH_SHORT).show();
             // Here you can call you API
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -159,7 +159,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 //updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
-                                //Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Log.w("TEST", "createUserWithEmail:failure", task.getException());
                                 //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
                                         //Toast.LENGTH_SHORT).show();
                                 //updateUI(null);

@@ -9,6 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -21,11 +26,13 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -60,10 +67,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.example.healthcenternearme.databinding.ActivityWelcomeBinding;
+
 public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
     TextView firstName;
     ImageButton medBtn;
+    Button adminBtn;
 
     userRegister userregister;
 
@@ -83,7 +93,12 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     boolean check2 = false;
     boolean check3 = false;
 
+    private String permissionUser = "User";
+
     private int PROXIMITY_RADIUS = 5000;
+
+    private AppBarConfiguration mAppBarConfiguration;
+    private ActivityWelcomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +107,14 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
         name();
         viewInitializations();
+        //adminSetting();
 
         firstName = findViewById(R.id.username);
+
+        //Nav Draw
+
+        //Nav Draw
+
 
         //Google Map
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -238,6 +259,36 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
             }
         };
     };
+
+    void adminSetting()
+    {
+        //find admin Button
+        adminBtn = findViewById(R.id.Admin);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");
+        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+        String userID = currentFirebaseUser.getUid();
+        DatabaseReference ref = database.getReference("register").child(userID) ; //nama table
+
+        userregister = new userRegister();
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userRegister ur = snapshot.getValue(userRegister.class);
+                permissionUser =  ur.getPermission();
+                Log.d("TESTJADI",permissionUser);
+                adminBtn.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                permissionUser = "User";
+                Log.d("TESTFAILED",permissionUser);
+                adminBtn.setVisibility(View.GONE);
+            }
+        });
+    }
 
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
 

@@ -29,7 +29,7 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar2"
+                android:id="@+id/toolbar"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="23dp"
@@ -164,6 +164,18 @@
 
                 </fragment>
             </FrameLayout>
+
+            <Button
+                android:id="@+id/Admin"
+                android:layout_width="149dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="131dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="130dp"
+                android:text="Admin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
