@@ -18,6 +18,12 @@
             android:name=".Profile"
             android:exported="false" />
         <activity
+<<<<<<< Updated upstream
+=======
+            android:name=".SecondWelcome"
+            android:exported="false" />
+        <activity
+>>>>>>> Stashed changes
             android:name=".LoginActivity"
             android:exported="false" />
 
