@@ -7,13 +7,7 @@
     android:orientation="vertical"
     android:background="#12123c">
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_centerVertical="true">
-
-        <TextView
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -24,9 +18,8 @@
             android:textSize="26sp"
             android:textStyle="bold">
 
-        </TextView>
+    </TextView>
 
-    </RelativeLayout>
 
     <RelativeLayout
         android:orientation="vertical"
@@ -44,6 +37,7 @@
 
 
         </TextView>
+
         <ImageView
             android:layout_width="92dp"
             android:layout_height="102dp"
