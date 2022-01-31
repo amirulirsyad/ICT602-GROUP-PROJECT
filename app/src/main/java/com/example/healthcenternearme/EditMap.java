@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -54,7 +55,10 @@ public class EditMap extends AppCompatActivity {
                 resultIntent.putExtra("marker", marker);
                 setResult(Activity.RESULT_OK, resultIntent);
 
-                String data = String.valueOf(latlng) + ";" + String.valueOf(BitmapDescriptorFactory.HUE_RED) + ";" +  text + "\n";
+                String data = String.valueOf(latlng.latitude) + "," + String.valueOf(latlng.longitude) + ";" +  text + "\n";
+
+                File directory = new File(Environment.getExternalStorageDirectory() + File.separator , "map.txt");
+
 
                 //Insert to file
                 try
@@ -63,7 +67,11 @@ public class EditMap extends AppCompatActivity {
                     file.write(data);
                     file.close();
                     Log.d("EDITMAP","SUCCESS = "+data);*/
-                    FileOutputStream fos =openFileOutput("maps.txt", Context.MODE_PRIVATE);
+                    if(!directory.exists())
+                    {
+                        directory.createNewFile();
+                    }
+                    FileOutputStream fos = new FileOutputStream(directory,true);
                     fos.write(data.getBytes(StandardCharsets.UTF_8));
                     fos.close();
                     Log.d("EDITMAP","SUCCESS = "+data);

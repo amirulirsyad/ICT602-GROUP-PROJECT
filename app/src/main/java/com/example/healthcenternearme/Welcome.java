@@ -20,6 +20,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
 import android.view.Gravity;
@@ -61,10 +62,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 
 public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
@@ -223,6 +227,41 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
                 mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
 
+                //Place User's marker
+                File directory = new File(Environment.getExternalStorageDirectory() + File.separator + "map.txt");
+                try
+                {
+                    FileInputStream file = new FileInputStream(directory);
+                    Scanner sc = new Scanner(file);
+
+                    while (sc.hasNext())
+                    {
+                        String[] position ;
+                        String line,text;
+
+                        line = sc.nextLine();
+                        StringTokenizer check = new StringTokenizer(line,";");
+                        position = check.nextToken().split(",");
+
+                        text = check.nextToken();
+
+                        double lat = Double.parseDouble(position[0]);
+                        double log = Double.parseDouble(position[1]);
+
+                        LatLng loc = new LatLng(lat,log);
+                        MarkerOptions MO = new MarkerOptions();
+                        MO.position(loc);
+                        MO.title(text);
+                        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                        mGoogleMap.addMarker(MO);
+                        Log.d("MAP","MAPS SUCCESS = "+loc);
+                    }
+                }
+                catch(Exception e)
+                {
+                    Log.d("MAP","MAPS MARK ERROR = "+e);
+                }
+                //Place User's marker
 
 
                 //TEST MAP

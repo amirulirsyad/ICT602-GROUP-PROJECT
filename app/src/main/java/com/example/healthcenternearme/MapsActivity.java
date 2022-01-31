@@ -21,6 +21,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
@@ -49,6 +50,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -142,6 +144,15 @@ public class MapsActivity extends AppCompatActivity
                 //Request Location Permission
                 checkLocationPermission();
             }
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                //Location Permission already granted
+
+            } else {
+                //Request Location Permission
+                checkExternalPermission();
+            }
         }
         else
         {
@@ -183,20 +194,21 @@ public class MapsActivity extends AppCompatActivity
                 mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
 
                 //Place User's marker
-                File file = new File("maps.txt");
+                File directory = new File(Environment.getExternalStorageDirectory() + File.separator + "map.txt");
                 try
                 {
+                    FileInputStream file = new FileInputStream(directory);
                     Scanner sc = new Scanner(file);
 
                     while (sc.hasNext())
                     {
                         String[] position ;
-                        String line,colour,text;
+                        String line,text;
 
                         line = sc.nextLine();
                         StringTokenizer check = new StringTokenizer(line,";");
                         position = check.nextToken().split(",");
-                        colour = check.nextToken();
+
                         text = check.nextToken();
 
                         double lat = Double.parseDouble(position[0]);
@@ -206,7 +218,8 @@ public class MapsActivity extends AppCompatActivity
                         MarkerOptions MO = new MarkerOptions();
                         MO.position(loc);
                         MO.title(text);
-                        MO.icon(BitmapDescriptorFactory.defaultMarker(Float.parseFloat(colour)));
+                        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                        mGoogleMap.addMarker(MO);
                         Log.d("MAP","MAPS SUCCESS = "+loc);
                     }
                 }
@@ -365,6 +378,43 @@ public class MapsActivity extends AppCompatActivity
         }
     }
 
+    public static final int MY_PERMISSIONS_REQUEST_EXTERNAL = 200;
+    private void checkExternalPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+                new AlertDialog.Builder(this)
+                        .setTitle("Write to External Storage Permission Needed")
+                        .setMessage("This app needs the Location permission, please accept to use location functionality")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Prompt the user once explanation has been shown
+                                ActivityCompat.requestPermissions(MapsActivity.this,
+                                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                        MY_PERMISSIONS_REQUEST_EXTERNAL );
+                            }
+                        })
+                        .create()
+                        .show();
+
+
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_EXTERNAL);
+            }
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -393,9 +443,22 @@ public class MapsActivity extends AppCompatActivity
                 }
                 return;
             }
-
             // other 'case' lines to check for other
             // permissions this app might request
+            case MY_PERMISSIONS_REQUEST_EXTERNAL: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show();
+                }
+                return;
+            }
         }
     }
 }
