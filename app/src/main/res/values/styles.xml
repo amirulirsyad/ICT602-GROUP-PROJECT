@@ -12,6 +12,7 @@
         <item name="colorAccent">#716671</item> //backgroundtext
         <item name="colorSurface">@drawable/cardbackgroud</item> //cardbackground welcome
         <item name="colorOnPrimary">@drawable/cardbackgroundbu</item> //cardbackground about us
+        <item name="colorButtonNormal">@drawable/barwhite</item> //bar icon
 
     </style>
 
@@ -24,6 +25,7 @@
         <item name="colorAccent">#b2bde2</item> //backgroundtext
         <item name="colorSurface">@drawable/cardbackgroundlight</item> //cardbackground welcome
         <item name="colorOnPrimary">@drawable/cardbackgroundlight</item> //cardbackground about us
+        <item name="colorButtonNormal">@drawable/barblack</item> //bar icon
     </style>
 
 
