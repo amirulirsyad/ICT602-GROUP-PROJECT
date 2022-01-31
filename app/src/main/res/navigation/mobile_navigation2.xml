@@ -10,6 +10,20 @@
         android:name="com.example.healthcenternearme.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.healthcenternearme.profileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/shareFragment"
+        android:name="com.example.healthcenternearme.ShareFragment"
+        android:label="fragment_share"
+        tools:layout="@layout/fragment_share" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.healthcenternearme.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
 
 </navigation>
