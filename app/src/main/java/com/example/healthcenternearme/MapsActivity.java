@@ -24,6 +24,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -68,6 +71,7 @@ public class MapsActivity extends AppCompatActivity
     Location mLastLocation;
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
+    ImageButton backBtn;
     private int PROXIMITY_RADIUS = 10000;
 
     userRegister userregister;
@@ -86,6 +90,8 @@ public class MapsActivity extends AppCompatActivity
 
        // getSupportActionBar().setTitle("Map Location Activity");
 
+        backBtn = findViewById(R.id.backButton);
+
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -93,6 +99,13 @@ public class MapsActivity extends AppCompatActivity
 
 
         //test
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapsActivity.this, Welcome.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
