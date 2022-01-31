@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#12123c">
+    android:background="?attr/colorTertiary">
 
     <TextView
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:fontFamily="@font/minotaur"
         android:text="About Us"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="?attr/colorSecondary"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_height="49dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="84dp"
-        android:background="@drawable/cardbackgroundbu"
+        android:background="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -79,7 +79,7 @@
         android:layout_height="49dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="184dp"
-        android:background="@drawable/cardbackgroundbu"
+        android:background="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -129,7 +129,7 @@
         android:layout_height="49dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="292dp"
-        android:background="@drawable/cardbackgroundbu"
+        android:background="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -179,7 +179,7 @@
         android:layout_height="49dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="404dp"
-        android:background="@drawable/cardbackgroundbu"
+        android:background="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -229,7 +229,7 @@
         android:layout_height="49dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="508dp"
-        android:background="@drawable/cardbackgroundbu"
+        android:background="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -295,7 +295,7 @@
         android:layout_marginTop="580dp"
         android:text="@string/youtubelink"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/white"
+        android:textColor="?attr/colorSecondary"
         android:textSize="13dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -319,7 +319,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="88dp"
         android:layout_marginTop="625dp"
-        android:textColor="@color/white"
+        android:textColor="?attr/colorSecondary"
         android:text="@string/githublink"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="13dp"
