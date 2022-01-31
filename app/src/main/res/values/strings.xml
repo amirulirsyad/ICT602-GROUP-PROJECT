@@ -8,6 +8,9 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="githublink">amirulirsyad (<a href="https://github.com/amirulirsyad/ICT602-GROUP-PROJECT.git">click here</a>)</string>
+    <string name="youtubelink">Muhammad Amirul Irsyad Mohd Rashid (<a href="https://www.youtube.com/channel/UCxsh1vs2-dSU6eGdOiLvKbg">click here</a>)</string>
+
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>

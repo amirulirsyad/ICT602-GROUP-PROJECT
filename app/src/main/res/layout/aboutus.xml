@@ -24,10 +24,10 @@
     </TextView>
 
     <TextView
-        android:layout_width="340dp"
-        android:layout_height="80dp"
+        android:layout_width="300dp"
+        android:layout_height="49dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="84dp"
         android:background="@drawable/cardbackgroundbu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -37,12 +37,12 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="92dp"
         android:fontFamily="@font/collegiate"
         android:text="MUHAMMAD FARIS AMMAR BIN ZULKIFLE"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -51,34 +51,34 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="112dp"
         android:fontFamily="@font/collegiate"
         android:text="2020847256"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
-
     <ImageView
-        android:layout_width="92dp"
-        android:layout_height="98dp"
+        android:layout_width="62dp"
+        android:layout_height="63dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/faris">
+
     </ImageView>
 
 
     <TextView
-        android:layout_width="340dp"
-        android:layout_height="80dp"
+        android:layout_width="300dp"
+        android:layout_height="49dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="184dp"
         android:background="@drawable/cardbackgroundbu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -88,12 +88,12 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="192dp"
         android:fontFamily="@font/collegiate"
         android:text="MUHAMMAD AMIRUL IRSYAD BIN MOHD RASHID"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -102,22 +102,22 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="288dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="220dp"
         android:fontFamily="@font/collegiate"
         android:text="2020489528"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
     <ImageView
-        android:layout_width="92dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="204dp"
+        android:layout_width="78dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="148dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/irsyad">
@@ -125,10 +125,10 @@
     </ImageView>
 
     <TextView
-        android:layout_width="340dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="380dp"
+        android:layout_width="300dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="292dp"
         android:background="@drawable/cardbackgroundbu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -138,12 +138,12 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="388dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="296dp"
         android:fontFamily="@font/collegiate"
         android:text="MOHAMAD DANISH FAZWAN BIN MOHD ROSOLIZA"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -152,22 +152,22 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="428dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="324dp"
         android:fontFamily="@font/collegiate"
         android:text="2020490082"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
     <ImageView
-        android:layout_width="92dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="344dp"
+        android:layout_width="78dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="252dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fazwan">
@@ -175,10 +175,10 @@
     </ImageView>
 
     <TextView
-        android:layout_width="340dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="520dp"
+        android:layout_width="300dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="404dp"
         android:background="@drawable/cardbackgroundbu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -188,12 +188,12 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="528dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="412dp"
         android:fontFamily="@font/collegiate"
         android:text="ISMAH HADIRAH BINTI MD ISA"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -202,22 +202,22 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="568dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="428dp"
         android:fontFamily="@font/collegiate"
         android:text="2020476688"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
     <ImageView
-        android:layout_width="92dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="484dp"
+        android:layout_width="78dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="364dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ismah">
@@ -225,10 +225,10 @@
     </ImageView>
 
     <TextView
-        android:layout_width="340dp"
-        android:layout_height="80dp"
+        android:layout_width="300dp"
+        android:layout_height="49dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="508dp"
         android:background="@drawable/cardbackgroundbu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -238,12 +238,12 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="668dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="520dp"
         android:fontFamily="@font/collegiate"
         android:text="MIRZA AFRINA BINTI YUSOF"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -252,27 +252,79 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="708dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="536dp"
         android:fontFamily="@font/collegiate"
         android:text="2020872682"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
     <ImageView
-        android:layout_width="92dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="628dp"
+        android:layout_width="78dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="472dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mirza">
 
     </ImageView>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="44dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="568dp"
+        android:background="@drawable/cardbackgroundcircle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/youtube" />
+
+    <TextView
+        android:id="@+id/youtubes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="580dp"
+        android:text="@string/youtubelink"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="44dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="616dp"
+        android:background="@drawable/cardbackgroundcircle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/github" />
+
+    <TextView
+        android:id="@+id/githubs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="625dp"
+        android:textColor="@color/white"
+        android:text="@string/githublink"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
