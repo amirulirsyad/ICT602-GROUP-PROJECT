@@ -1,5 +1,10 @@
 package com.example.healthcenternearme;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +14,9 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -41,11 +48,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import java.util.List;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class MapsActivity extends AppCompatActivity
         implements OnMapReadyCallback {
@@ -63,6 +73,9 @@ public class MapsActivity extends AppCompatActivity
     boolean check1 = false;
     boolean check2 = false;
     boolean check3 = false;
+
+    private static final int EDIT_REQUEST = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,9 +116,21 @@ public class MapsActivity extends AppCompatActivity
         mLocationRequest.setFastestInterval(600000);
         mLocationRequest.setSmallestDisplacement(10);
 
+        /*ActivityResultLauncher<Intent> activityResultLaunch = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == 123) {
+                            // ToDo : Do your stuff...
+                        } else if(result.getResultCode() == 321) {
+                            // ToDo : Do your stuff...
+                        }
+                    }
+                });*/
 
-
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        {
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
@@ -118,10 +143,22 @@ public class MapsActivity extends AppCompatActivity
                 checkLocationPermission();
             }
         }
-        else {
+        else
+        {
             mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
             mGoogleMap.setMyLocationEnabled(true);
         }
+
+        //add marker
+        mGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(@NonNull LatLng latLng) {
+                Intent edit = new Intent(MapsActivity.this,EditMap.class);
+                edit.putExtra("location",latLng);
+                MapsActivity.this.startActivityForResult(edit,EDIT_REQUEST);
+            }
+        });
+        //add marker
     }
 
     LocationCallback mLocationCallback = new LocationCallback() {
@@ -144,6 +181,40 @@ public class MapsActivity extends AppCompatActivity
                 markerOptions.title("Current Position");
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
                 mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
+
+                //Place User's marker
+                File file = new File("maps.txt");
+                try
+                {
+                    Scanner sc = new Scanner(file);
+
+                    while (sc.hasNext())
+                    {
+                        String[] position ;
+                        String line,colour,text;
+
+                        line = sc.nextLine();
+                        StringTokenizer check = new StringTokenizer(line,";");
+                        position = check.nextToken().split(",");
+                        colour = check.nextToken();
+                        text = check.nextToken();
+
+                        double lat = Double.parseDouble(position[0]);
+                        double log = Double.parseDouble(position[1]);
+
+                        LatLng loc = new LatLng(lat,log);
+                        MarkerOptions MO = new MarkerOptions();
+                        MO.position(loc);
+                        MO.title(text);
+                        MO.icon(BitmapDescriptorFactory.defaultMarker(Float.parseFloat(colour)));
+                        Log.d("MAP","MAPS SUCCESS = "+loc);
+                    }
+                }
+                catch(Exception e)
+                {
+                    Log.d("MAP","MAPS MARK ERROR = "+e);
+                }
+                //Place User's marker
 
                 //TEST MAP
                 String Hospital = "hospital";
@@ -225,6 +296,25 @@ public class MapsActivity extends AppCompatActivity
             }
         };
     };
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode,resultCode,data);
+        switch (requestCode)
+        {
+            case(EDIT_REQUEST) :
+                    {
+                        if(resultCode == Activity.RESULT_OK)
+                        {
+                            MarkerOptions marker = data.getParcelableExtra("marker");
+                            mGoogleMap.addMarker(marker);
+                        }
+                        break;
+                    }
+        }
+    }
+
 
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
 
