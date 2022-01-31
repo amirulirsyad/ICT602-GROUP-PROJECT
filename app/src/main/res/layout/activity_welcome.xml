@@ -89,11 +89,27 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="110dp"
                 android:text="Welcome Back!"
-                android:textColor="#c9c1c5"
+                android:textColor="?attr/colorSecondary"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toTopOf="@+id/username"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="304dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="67dp"
+                android:text="@string/dark_mode"
+                android:textColor="?attr/colorSecondary"
+                app:layout_constraintBottom_toTopOf="@+id/option"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
 
             <TextView
                 android:id="@+id/username"
@@ -124,6 +140,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/username" />
+
+
 
             <FrameLayout
                 android:id="@+id/frameLayout"
@@ -165,17 +183,9 @@
                 </fragment>
             </FrameLayout>
 
-            <Button
-                android:id="@+id/Admin"
-                android:layout_width="149dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="131dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="130dp"
-                android:text="Admin"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

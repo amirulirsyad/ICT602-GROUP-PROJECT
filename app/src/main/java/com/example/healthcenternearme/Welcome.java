@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -28,7 +29,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -75,7 +78,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
     TextView firstName;
     ImageButton medBtn;
-    Button adminBtn, notifBtn;
+    Button notifBtn;
 
 
     userRegister userregister;
@@ -100,17 +103,40 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
     private int PROXIMITY_RADIUS = 5000;
 
-
+    Switch switchtheme;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+        {
+            setTheme(R.style.DarkTheme);
+        }
+        else {
+            setTheme(R.style.AppTheme);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        switchtheme=findViewById(R.id.switch1);
+
+        switchtheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
+            }
+        });
+
+
         name();
         viewInitializations();
+
+
         //adminSetting();
 
 
@@ -336,35 +362,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
         };
     };
 
-    void adminSetting()
-    {
-        //find admin Button
-        adminBtn = findViewById(R.id.Admin);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");
-        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
-        String userID = currentFirebaseUser.getUid();
-        DatabaseReference ref = database.getReference("register").child(userID) ; //nama table
-
-        userregister = new userRegister();
-
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                userRegister ur = snapshot.getValue(userRegister.class);
-                permissionUser =  ur.getPermission();
-                Log.d("TESTJADI",permissionUser);
-                adminBtn.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                permissionUser = "User";
-                Log.d("TESTFAILED",permissionUser);
-                adminBtn.setVisibility(View.GONE);
-            }
-        });
-    }
 
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
 
