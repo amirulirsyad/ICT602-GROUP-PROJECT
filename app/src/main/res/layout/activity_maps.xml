@@ -8,7 +8,7 @@
     tools:context=".MapsActivity">
 
     <ImageButton
-        android:id="@+id/medicButton"
+        android:id="@+id/back"
         android:layout_width="45dp"
         android:layout_height="40dp"
         android:background="@drawable/back"
