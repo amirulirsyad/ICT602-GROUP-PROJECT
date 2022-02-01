@@ -19,4 +19,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_drawer">Drawer</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="welcome">Welcome</string>
 </resources>

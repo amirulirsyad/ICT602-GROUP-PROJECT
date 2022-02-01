@@ -2,63 +2,90 @@ package com.example.healthcenternearme;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link profileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+
 public class profileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    TextView firstName, username, email, userAgent, coordinate;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    userRegister userregister;
+
+    boolean check = false;
 
     public profileFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment profileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static profileFragment newInstance(String param1, String param2) {
-        profileFragment fragment = new profileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+
+        View v = inflater.inflate(R.layout.fragment_profile, container, false);
+        profile();
+
+        firstName = v.findViewById(R.id.fullnamedata);
+        username = v.findViewById(R.id.usernamedata);
+        email = v.findViewById(R.id.emaildata);
+        userAgent = v.findViewById(R.id.useragentdata);
+        coordinate = v.findViewById(R.id.usercoordinatedata);
+        //last
+        return v;
+    }
+
+    public void profile(){
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");
+        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+        String userID = currentFirebaseUser.getUid();
+        DatabaseReference ref = database.getReference("register").child(userID) ; //nama table
+
+        userregister = new userRegister();
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userRegister ur = snapshot.getValue(userRegister.class);
+                if(!check)
+                {
+                    firstName.setText(ur.getFullName());
+                    username.setText(ur.getUserName());
+                    email.setText(ur.getEmail());
+                    userAgent.setText(ur.getUserAgent());
+                    coordinate.setText(ur.getUserCoordinate());
+                    check = true;
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //Log.w("TEST","Error",error.toException());
+            }
+        });
     }
 }

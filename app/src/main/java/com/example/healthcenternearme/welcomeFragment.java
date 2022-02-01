@@ -1,24 +1,9 @@
 package com.example.healthcenternearme;
 
-import static com.example.healthcenternearme.R.drawable.*;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -28,19 +13,25 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.example.healthcenternearme.databinding.ActivityDrawerBinding;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -48,12 +39,13 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.navigation.NavigationView;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -62,24 +54,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
 
-public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
+public class welcomeFragment extends Fragment implements OnMapReadyCallback {
 
     TextView firstName;
     ImageButton medBtn;
@@ -95,36 +80,79 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     Location mLastLocation;
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
-    DrawerLayout drawerLayout;
     //NavigationView navigationView;
     //Google Map
 
-    boolean slidestate = false;
     boolean check1 = false;
     boolean check2 = false;
     boolean check3 = false;
-
-    private String permissionUser = "User";
 
     private int PROXIMITY_RADIUS = 5000;
 
     Switch switchtheme;
 
+    public welcomeFragment() {
+        // Required empty public constructor
+    }
+
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        //DO NOT CHANGE
+        View v ;
+
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
         {
-            setTheme(R.style.DarkTheme);
+            // create ContextThemeWrapper from the original Activity Context with the custom theme
+            final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.DarkTheme);
+            LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+
+            //setTheme(R.style.DarkTheme);
+            //DO NOT CHANGE
+            v = localInflater.inflate(R.layout.fragment_welcome, container, false);
         }
         else {
-            setTheme(R.style.AppTheme);
+            final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.AppTheme);
+            LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+            //setTheme(R.style.AppTheme);
+            //DO NOT CHANGE
+            v = localInflater.inflate(R.layout.fragment_welcome, container, false);
         }
+
+
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+
+        //findview
+        firstName = v.findViewById(R.id.username);
+        notifBtn = v.findViewById(R.id.notification);
+        medBtn = v.findViewById(R.id.medicButton);
+        //findview
+
+        //button onClick
+        medBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+        //button onClick
 
 
-        switchtheme=findViewById(R.id.switch1);
+
+        switchtheme=(Switch) v.findViewById(R.id.switch1);
 
         switchtheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -137,67 +165,27 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
             }
         });
 
-
         name();
         viewInitializations();
 
-
-        //adminSetting();
-
-
-        firstName = findViewById(R.id.username);
-        notifBtn = findViewById(R.id.notification);
-
-
-
-
         //Google Map
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
+        mapFrag = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.mapView);
+        assert mapFrag != null;
         mapFrag.getMapAsync(this);
         //Google Map
 
-        notifBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Welcome.this, Profile.class);
-                startActivity(intent);
-            }
-        });
 
-    }//end oncreate
+        //last...DO NOT CHANGE
+        return v;
+    }
 
 
-    //DRAWER
-/*
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()){
 
-            case R.id.nav_profile:
-                Intent intent = new Intent(Welcome.this,Profile.class);
-                startActivity(intent);
-                break;
 
-            case R.id.nav_aboutus:
-                Intent intent1 = new Intent(Welcome.this,AboutUs.class);
-                startActivity(intent1);
-                break;
-
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-                break;
-        }
-
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }*/
-
-    //DRAWER
-
-    //Google Map
     @Override
-    public void onMapReady(GoogleMap googleMap)
-    {
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+
         mGoogleMap = googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mGoogleMap.setMinZoomPreference(13);
@@ -210,7 +198,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this,
+            if (ContextCompat.checkSelfPermission(requireActivity(),
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 //Location Permission already granted
@@ -362,6 +350,9 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
 
 
+
+
+
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
 
         StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
@@ -376,24 +367,24 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private void checkLocationPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
 
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+            if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(),
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
 
                 // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
-                new AlertDialog.Builder(this)
+                new AlertDialog.Builder(requireActivity())
                         .setTitle("Location Permission Needed")
                         .setMessage("This app needs the Location permission, please accept to use location functionality")
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //Prompt the user once explanation has been shown
-                                ActivityCompat.requestPermissions(Welcome.this,
+                                ActivityCompat.requestPermissions(requireActivity(),
                                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                                         MY_PERMISSIONS_REQUEST_LOCATION );
                             }
@@ -404,7 +395,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
             } else {
                 // No explanation needed, we can request the permission.
-                ActivityCompat.requestPermissions(this,
+                ActivityCompat.requestPermissions(requireActivity(),
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION );
             }
@@ -423,7 +414,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
                     // permission was granted, yay! Do the
                     // location-related task you need to do.
-                    if (ContextCompat.checkSelfPermission(this,
+                    if (ContextCompat.checkSelfPermission(requireActivity(),
                             Manifest.permission.ACCESS_FINE_LOCATION)
                             == PackageManager.PERMISSION_GRANTED) {
 
@@ -435,7 +426,7 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
-                    Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show();
+                    Toast.makeText(requireActivity(), "permission denied", Toast.LENGTH_LONG).show();
                 }
                 return;
             }
@@ -444,8 +435,6 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
             // permissions this app might request
         }
     }
-
-    //Google Map
 
     @Override
     public void onPause()
@@ -462,16 +451,8 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
     void viewInitializations() {
 
         //ImageButton
-        medBtn = (ImageButton)findViewById(R.id.medicButton);
-        medBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(Welcome.this, MapsActivity.class);
-                startActivity(intent);
-            }
-        });
+
+
 
     }
 
@@ -505,5 +486,4 @@ public class Welcome extends AppCompatActivity implements OnMapReadyCallback {
 
 
     }
-
 }
