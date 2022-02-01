@@ -21,7 +21,17 @@ import com.google.firebase.database.ValueEventListener;
 
 public class profileFragment extends Fragment {
 
-    TextView firstName, username, email, userAgent, coordinate;
+    TextView firstName;
+    TextView username;
+    TextView email;
+    TextView userAgent;
+    TextView coordinate;
+
+    private static String nameText = "";
+    private static String userText = "";
+    private static String emailText = "";
+    private static String agentText = "";
+    private static String coorText = "";
 
     userRegister userregister;
 
@@ -46,13 +56,14 @@ public class profileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
-        profile();
 
         firstName = v.findViewById(R.id.fullnamedata);
         username = v.findViewById(R.id.usernamedata);
         email = v.findViewById(R.id.emaildata);
         userAgent = v.findViewById(R.id.useragentdata);
         coordinate = v.findViewById(R.id.usercoordinatedata);
+
+        profile();
         //last
         return v;
     }
@@ -63,6 +74,7 @@ public class profileFragment extends Fragment {
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
         String userID = currentFirebaseUser.getUid();
         DatabaseReference ref = database.getReference("register").child(userID) ; //nama table
+        DatabaseReference refer = database.getReference("userinfo").child(userID);
 
         userregister = new userRegister();
 
@@ -70,15 +82,13 @@ public class profileFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userRegister ur = snapshot.getValue(userRegister.class);
-                if(!check)
-                {
-                    firstName.setText(ur.getFullName());
-                    username.setText(ur.getUserName());
-                    email.setText(ur.getEmail());
-                    userAgent.setText(ur.getUserAgent());
-                    coordinate.setText(ur.getUserCoordinate());
-                    check = true;
-                }
+
+                    nameText = ur.getFullName();
+                    userText = ur.getUserName();
+                    emailText = ur.getEmail();
+                    firstName.setText(nameText);
+                    username.setText(userText);
+                    email.setText(emailText);
 
             }
 
@@ -87,5 +97,30 @@ public class profileFragment extends Fragment {
                 //Log.w("TEST","Error",error.toException());
             }
         });
+
+
+
+        refer.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                userRegister ur = snapshot.getValue(userRegister.class);
+                agentText = ur.getUserAgent();
+                coorText = ur.getUserCoordinate();
+                userAgent.setText(agentText);
+                coordinate.setText(coorText);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        firstName.setText(nameText);
+        username.setText(userText);
+        email.setText(emailText);
+        userAgent.setText(agentText);
+        coordinate.setText(coorText);
     }
 }

@@ -80,8 +80,9 @@ public class welcomeFragment extends Fragment implements OnMapReadyCallback {
     Location mLastLocation;
     Marker mCurrLocationMarker;
     FusedLocationProviderClient mFusedLocationClient;
-    //NavigationView navigationView;
     //Google Map
+
+    private static String nameText = "";
 
     boolean check1 = false;
     boolean check2 = false;
@@ -110,9 +111,9 @@ public class welcomeFragment extends Fragment implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
 
         //DO NOT CHANGE
-        View v ;
-
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+        View v = inflater.inflate(R.layout.fragment_welcome,container,false);
+        Log.d("FRAG","TESTFRAG");
+        /*if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
         {
             // create ContextThemeWrapper from the original Activity Context with the custom theme
             final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.DarkTheme);
@@ -129,6 +130,20 @@ public class welcomeFragment extends Fragment implements OnMapReadyCallback {
             //DO NOT CHANGE
             v = localInflater.inflate(R.layout.fragment_welcome, container, false);
         }
+
+        switchtheme=(Switch) v.findViewById(R.id.switch1);
+
+        switchtheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
+            }
+        });
+        */
 
 
 
@@ -150,23 +165,9 @@ public class welcomeFragment extends Fragment implements OnMapReadyCallback {
         });
         //button onClick
 
-
-
-        switchtheme=(Switch) v.findViewById(R.id.switch1);
-
-        switchtheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                }
-            }
-        });
-
         name();
         viewInitializations();
+
 
         //Google Map
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
@@ -293,7 +294,6 @@ public class welcomeFragment extends Fragment implements OnMapReadyCallback {
                 DatabaseReference ref = database.getReference("userinfo").child(userID) ; //nama table
                 DatabaseReference refer = database.getReference("register").child(userID) ;
                 userregister = new userRegister();
-                String name;
 
                 refer.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -457,7 +457,6 @@ public class welcomeFragment extends Fragment implements OnMapReadyCallback {
     }
 
     public void name(){
-
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://ict602-group-project-default-rtdb.asia-southeast1.firebasedatabase.app");
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
         String userID = currentFirebaseUser.getUid();
@@ -471,7 +470,8 @@ public class welcomeFragment extends Fragment implements OnMapReadyCallback {
                 userRegister ur = snapshot.getValue(userRegister.class);
                 if(!check3)
                 {
-                    firstName.setText(ur.getFullName());
+                    nameText = ur.getFullName();
+                    firstName.setText(nameText);
                     check3 = true;
                 }
 
@@ -479,11 +479,11 @@ public class welcomeFragment extends Fragment implements OnMapReadyCallback {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                //Log.w("TEST","Error",error.toException());
+                Log.w("TEST","Error",error.toException());
             }
+
         });
 
-
-
+        firstName.setText(nameText);
     }
 }

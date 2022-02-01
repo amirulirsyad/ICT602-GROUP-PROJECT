@@ -44,6 +44,7 @@ public class Profile extends AppCompatActivity {
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
         String userID = currentFirebaseUser.getUid();
         DatabaseReference ref = database.getReference("register").child(userID) ; //nama table
+        DatabaseReference refer = database.getReference("userinfo").child(userID);
 
         userregister = new userRegister();
 
@@ -56,8 +57,6 @@ public class Profile extends AppCompatActivity {
                     firstName.setText(ur.getFullName());
                     username.setText(ur.getUserName());
                     email.setText(ur.getEmail());
-                    userAgent.setText(ur.getUserAgent());
-                    coordinate.setText(ur.getUserCoordinate());
                     check = true;
                 }
 
@@ -66,6 +65,21 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 //Log.w("TEST","Error",error.toException());
+            }
+        });
+
+        refer.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                userRegister ur = snapshot.getValue(userRegister.class);
+                userAgent.setText(ur.getUserAgent());
+                coordinate.setText(ur.getUserCoordinate());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }//profile()

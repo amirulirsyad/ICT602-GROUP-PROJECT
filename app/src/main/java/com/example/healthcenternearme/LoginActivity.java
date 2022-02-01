@@ -106,17 +106,9 @@ public class LoginActivity extends AppCompatActivity {
                                 String userID = currentFirebaseUser.getUid();
                                 DatabaseReference ref = db.getReference("register").child(userID);
 
-
-
-
-
-                                /*Intent intent = new Intent(LoginActivity.this, Welcome.class);
-                                startActivity(intent);*/
+                                //test
                                 Intent intent = new Intent(LoginActivity.this,Drawer.class);
                                 startActivity(intent);
-
-
-
                                 //end data
                             }
                             else{
@@ -133,4 +125,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
+
+
 }

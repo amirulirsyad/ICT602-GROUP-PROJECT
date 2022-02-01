@@ -25,8 +25,7 @@
         <activity
             android:name=".Drawer"
             android:exported="false"
-            android:label="@string/title_activity_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/title_activity_drawer" />
         <activity
             android:name=".EditMap"
             android:exported="false" />
@@ -48,14 +47,12 @@
             android:name=".Welcome"
             android:exported="false" />
         <activity
-            android:name=".GPS"
-            android:exported="false" />
-        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

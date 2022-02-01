@@ -4,179 +4,174 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorTertiary"
     tools:context=".profileFragment">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/minotaur"
-        android:text="My Profile"
-        android:textAlignment="center"
-        android:textColor="?attr/colorSecondary"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-    </TextView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="131dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="68dp"
-        android:background="@drawable/cardbackgroundcircle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/waze">
+            <ImageView
+                android:layout_width="131dp"
+                android:layout_height="124dp"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/cardbackgroundcircle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_profile">
 
-    </ImageView>
+            </ImageView>
 
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="236dp"
-        android:fontFamily="@font/raleway"
-        android:text="Full Name :"
-        android:textColor="?attr/colorSecondary"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="184dp"
+                android:fontFamily="@font/raleway"
+                android:text="Full Name :"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:id="@+id/fullnamedata"
-        android:layout_width="359dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="266dp"
-        android:fontFamily="@font/minecraft"
-        android:textColor="#00B4DB"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="272dp"
+                android:fontFamily="@font/raleway"
+                android:text="Username :"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="318dp"
-        android:fontFamily="@font/raleway"
-        android:text="Username :"
-        android:textColor="?attr/colorSecondary"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/usernamedata"
+                android:layout_width="359dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="304dp"
+                android:fontFamily="@font/minecraft"
+                android:textColor="#00B4DB"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:id="@+id/usernamedata"
-        android:layout_width="359dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="348dp"
-        android:fontFamily="@font/minecraft"
-        android:textColor="#00B4DB"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="332dp"
+                android:fontFamily="@font/raleway"
+                android:text="Email :"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="380dp"
-        android:fontFamily="@font/raleway"
-        android:text="Email :"
-        android:textColor="?attr/colorSecondary"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/emaildata"
+                android:layout_width="359dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="364dp"
+                android:fontFamily="@font/minecraft"
+                android:textColor="#00B4DB"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:id="@+id/emaildata"
-        android:layout_width="359dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="410dp"
-        android:fontFamily="@font/minecraft"
-        android:textColor="#00B4DB"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/fullnamedata"
+                android:layout_width="359dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="212dp"
+                android:fontFamily="@font/minecraft"
+                android:textColor="#00B4DB"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:layout_width="246dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="442dp"
-        android:fontFamily="@font/raleway"
-        android:text="User Agent :"
-        android:textColor="?attr/colorSecondary"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="246dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="392dp"
+                android:fontFamily="@font/raleway"
+                android:text="User Agent :"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:id="@+id/useragentdata"
-        android:layout_width="362dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="472dp"
-        android:fontFamily="@font/minecraft"
-        android:textColor="#00B4DB"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/useragentdata"
+                android:layout_width="392dp"
+                android:layout_height="83dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="428dp"
+                android:fontFamily="@font/minecraft"
+                android:textColor="#00B4DB"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:layout_width="249dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="508dp"
-        android:fontFamily="@font/raleway"
-        android:text="User Coordinate:"
-        android:textColor="?attr/colorSecondary"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="249dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="512dp"
+                android:fontFamily="@font/raleway"
+                android:text="User Coordinate:"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+            </TextView>
 
-    <TextView
-        android:id="@+id/usercoordinatedata"
-        android:layout_width="363dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="538dp"
-        android:fontFamily="@font/minecraft"
-        android:textColor="#00B4DB"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/usercoordinatedata"
+                android:layout_width="389dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="544dp"
+                android:fontFamily="@font/minecraft"
+                android:textColor="#00B4DB"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
 
-    </TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
 </FrameLayout>
