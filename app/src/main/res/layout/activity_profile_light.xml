@@ -56,7 +56,6 @@
         android:layout_height="55dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="266dp"
-        android:text="muhammad hasif"
         android:fontFamily="@font/minecraft"
         android:textColor="#00B4DB"
         android:textSize="22sp"
