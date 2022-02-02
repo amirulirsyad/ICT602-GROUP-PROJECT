@@ -119,8 +119,19 @@
                 </fragment>
             </FrameLayout>
 
+            <TextView
+                android:layout_width="321dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="560dp"
+                android:background="?attr/colorAccent"
+                android:text="Tap anywhere on the map to mark location"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-
+            </TextView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

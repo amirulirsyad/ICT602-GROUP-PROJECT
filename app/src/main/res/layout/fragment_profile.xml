@@ -168,7 +168,9 @@
                 android:textColor="#00B4DB"
                 android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></TextView>
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

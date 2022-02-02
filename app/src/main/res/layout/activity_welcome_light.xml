@@ -150,6 +150,21 @@
                 </com.google.android.gms.maps.MapView>
             </FrameLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="632dp"
+                android:text="Tap anywhere on the map to mark location"
+                android:background="#b2bde2"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
