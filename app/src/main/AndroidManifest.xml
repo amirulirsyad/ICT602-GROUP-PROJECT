@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ResetPass"
+            android:exported="false" />
+        <activity
             android:name=".Drawer"
             android:exported="false"
             android:label="@string/title_activity_drawer" />
@@ -52,7 +55,6 @@
         <activity
             android:name=".SplashScreen"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
